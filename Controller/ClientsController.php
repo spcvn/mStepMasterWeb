@@ -108,6 +108,8 @@ class ClientsController extends AppController {
     	        if(!$client || !is_numeric($client_id)){
     	            throw new NotFoundException();
     	        }
+    	    }else{
+    	        throw new NotFoundException();
     	    }
 	    }
 	    $this->set(compact('is_request','client','request'));
