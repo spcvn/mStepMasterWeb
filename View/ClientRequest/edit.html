@@ -1,45 +1,46 @@
 <div class="row">
 	<form name="frm_request" class="form-horizontal" role="form" action="/client_request/save_process" method="post" novalidate>
+		<input type="hidden" name="id" value="<?php echo ((isset($request['TblMstepClientRequest']['id']))?$request['TblMstepClientRequest']['id']:'');?>"/>
+		<input type="hidden" name="status" value="<?php echo ((isset($request['TblMstepClientRequest']['status']))?$request['TblMstepClientRequest']['status']:'');?>"/>
 		<div class="col col-xs-12">
-			<input type="hidden" name="id" value="<?php echo ((isset($request['TblMstepClientRequest']['id']))?$request['TblMstepClientRequest']['id']:'');?>"/>
 			<h4 class="lighter block green"><?php echo __('Client information');?></h4>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_client_name"><?php echo __('Name');?><span class="required">※</span> </label>
 				<div class="col-sm-5">
-					<input type="text" name="client_name" value="<?php echo ((isset($request['TblMstepClientRequest']['client_name']))?$request['TblMstepClientRequest']['client_name']:'')?>" id="txt_client_name" class="form-control" placeholder="<?php echo __('Client name')?>"/>
+					<input type="text" name="client_name" value="<?php echo ((isset($request['TblMstepClientRequest']['client_name']))?$request['TblMstepClientRequest']['client_name']:'')?>" id="txt_client_name" class="form-control" placeholder="<?php echo __('Client name')?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_client_address"><?php echo __('Address');?><span class="required">※</span> </label>
 				<div class="col-sm-5">
-					<input type="text" name="client_address" value="<?php echo ((isset($request['TblMstepClientRequest']['client_address']))?$request['TblMstepClientRequest']['client_address']:'')?>" id="txt_client_address" class="form-control" placeholder="<?php echo __('Client address')?>"/>
+					<input type="text" name="client_address" value="<?php echo ((isset($request['TblMstepClientRequest']['client_address']))?$request['TblMstepClientRequest']['client_address']:'')?>" id="txt_client_address" class="form-control" placeholder="<?php echo __('Client address')?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_client_email"><?php echo __('Email');?><span class="required">※</span> </label>
 				<div class="col-sm-5">
-					<input type="text" name="client_email" value="<?php echo ((isset($request['TblMstepClientRequest']['client_email']))?$request['TblMstepClientRequest']['client_email']:'')?>" id="txt_client_email" class="form-control" placeholder="<?php echo __('Client Email')?>"/>
+					<input type="email" name="client_email" value="<?php echo ((isset($request['TblMstepClientRequest']['client_email']))?$request['TblMstepClientRequest']['client_email']:'')?>" id="txt_client_email" class="form-control" placeholder="<?php echo __('Client Email')?>" data-msg-pattern="<?php echo __('Email format invalid');?>" data-msg-email="<?php echo __('Email format invalid ');?>" required pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.([a-zA-Z0-9-.]{2,6})+$)"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_client_tel"><?php echo __('Phone');?><span class="required">※</span> </label>
 				<div class="col-sm-5">
-					<input type="tel" name="client_tel" value="<?php echo ((isset($request['TblMstepClientRequest']['client_tel']))?$request['TblMstepClientRequest']['client_tel']:'')?>" id="txt_client_tel" class="form-control" placeholder="<?php echo __('Client phone')?>"/>
+					<input type="tel" name="client_tel" value="<?php echo ((isset($request['TblMstepClientRequest']['client_tel']))?$request['TblMstepClientRequest']['client_tel']:'')?>" id="txt_client_tel" class="form-control" placeholder="<?php echo __('Client phone')?>" required pattern="(^[0-9\.\+\- ]+$)" data-msg-pattern="<?php echo __('Phone format invalid');?>"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_client_fax"><?php echo __('Fax');?> </label>
 				<div class="col-sm-5">
-					<input type="tel" name="client_fax" value="<?php echo ((isset($request['TblMstepClientRequest']['client_fax']))?$request['TblMstepClientRequest']['client_fax']:'')?>" id="txt_client_fax" class="form-control" placeholder="<?php echo __('Client fax')?>"/>
+					<input type="tel" name="client_fax" value="<?php echo ((isset($request['TblMstepClientRequest']['client_fax']))?$request['TblMstepClientRequest']['client_fax']:'')?>" id="txt_client_fax" class="form-control" placeholder="<?php echo __('Client fax')?>" pattern="(^[0-9\.\+\- ]+$)" data-msg-pattern="<?php echo __('Fax format invalid');?>"/>
 				</div>
 			</div>
 		</div>
 		<div class="col col-xs-12">
 			<h4 class="lighter block green"><?php echo __('Contact information');?></h4>
 			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_name"><?php echo __('Contact name');?></label>
+				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_name"><?php echo __('Contact name');?><span class="required">※</span></label>
 				<div class="col-sm-5">
-					<input type="text" name="contact_name" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_name']))?$request['TblMstepClientRequest']['contact_name']:'')?>" id="txt_contact_name" class="form-control" placeholder="<?php echo __('Contact name');?>"/>
+					<input type="text" name="contact_name" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_name']))?$request['TblMstepClientRequest']['contact_name']:'')?>" id="txt_contact_name" class="form-control" placeholder="<?php echo __('Contact name');?>" required/>
 				</div>
 			</div>
 			<div class="form-group">
@@ -49,9 +50,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_email"><?php echo __('Email');?></label>
+				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_email"><?php echo __('Email');?><span class="required">※</span></label>
 				<div class="col-sm-5">
-					<input type="text" name="contact_email" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_email']))?$request['TblMstepClientRequest']['contact_email']:'')?>" id="txt_contact_email" class="form-control" placeholder="<?php echo __('Email');?>"/>
+					<input type="text" name="contact_email" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_email']))?$request['TblMstepClientRequest']['contact_email']:'')?>" id="txt_contact_email" class="form-control" placeholder="<?php echo __('Email');?>"  data-msg-pattern="<?php echo __('Email format invalid');?>" data-msg-email="<?php echo __('Email format invalid ');?>" required pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.([a-zA-Z0-9-.]{2,6})+$)"/>
 				</div>
 				<span class="help-inline col-sm-4">
 					<label class="middle">
@@ -63,13 +64,13 @@
 			<div class="form-group">
 				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_mobile"><?php echo __('Mobile');?></label>
 				<div class="col-sm-5">
-					<input type="tel" name="contact_mobile" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_mobile']))?$request['TblMstepClientRequest']['contact_mobile']:'')?>" id="txt_contact_mobile" class="form-control" placeholder="<?php echo __('Mobile');?>"/>
+					<input type="tel" name="contact_mobile" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_mobile']))?$request['TblMstepClientRequest']['contact_mobile']:'')?>" id="txt_contact_mobile" class="form-control" placeholder="<?php echo __('Mobile');?>" pattern="(^[0-9\.\+\- ]+$)" data-msg-pattern="<?php echo __('Mobile format invalid');?>"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_tel"><?php echo __('Phone');?></label>
+				<label class="col-sm-3 control-label no-padding-right" for="txt_contact_tel"><?php echo __('Phone');?><span class="required">※</span></label>
 				<div class="col-sm-5">
-					<input type="tel" name="contact_tel" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_tel']))?$request['TblMstepClientRequest']['contact_tel']:'')?>" id="txt_contact_tel" class="form-control" placeholder="<?php echo __('Phone');?>"/>
+					<input type="tel" name="contact_tel" value="<?php echo ((isset($request['TblMstepClientRequest']['contact_tel']))?$request['TblMstepClientRequest']['contact_tel']:'')?>" id="txt_contact_tel" class="form-control" placeholder="<?php echo __('Phone');?>" required pattern="(^[0-9\.\+\- ]+$)" data-msg-pattern="<?php echo __('Phone format invalid');?>"/>
 				</div>
 				<span class="help-inline col-sm-4">
 					<label class="middle">
@@ -88,6 +89,8 @@
 		</div>
 	</form>
 </div>
+<?php echo $this->Html->script('/assets/js/jquery.validate_pattern.js',['block'=>'script_library']);?>
+<?php $this->start('second_script');?>
 <script type="text/javascript">
 	$(function () {
 		$(':checkbox.cp_chk').each(function () {
@@ -110,12 +113,37 @@
 			});
 		});
 
+		var addErrorClass=function(){
+			return $(this).addClass('has-error');
+		}
+		var removeErrorClass=function(){
+			return $(this).removeClass('has-error');
+		}
+
 		$('form[name="frm_request"]').validate({
+			errorClass:'help-block',
+			errorPlacement: function(err, ele){
+				addErrorClass.call(ele.parents('.form-group').first());
+				err.insertAfter(ele);
+			},
+//			onkeyup:function(ele,event){
+//				if($(ele).hasClass('error')){
+//					addErrorClass.call($(ele).parents('.form-group').first());
+//				} else {
+//					removeErrorClass.call($(ele).parents('.form-group').first());
+//				}
+//			},
+			highlight:function(ele){
+				addErrorClass.call($(ele).parents('.form-group').first());
+			},
+			success:function(label, ele){
+				removeErrorClass.call($(ele).parents('.form-group').first());
+			},
 			submitHandler: function(form){
 				$.post($(form).attr('action'), $(form).serialize(), function(res){
 					$.confirm({
 						title: 'Alert!',
-						content: '<?php echo __('ABC',true);?>',
+						content: res.message,
 						buttons: {
 							ok: {
 								btnClass: 'btn-danger',
@@ -136,3 +164,4 @@
 		});
 	});
 </script>
+<?php $this->end();?>

@@ -14,6 +14,7 @@
 			<b class="arrow"></b>
 		</li>-->
 
+		<?php if($allows=='all' or (isset($allows['Clients']))) :?>
 		<li class="active open">
 			<a href="" class="dropdown-toggle">
 				<i class="menu-icon fa fa-desktop"></i>
@@ -22,10 +23,9 @@
 			</a>
 
 			<b class="arrow"></b>
-
 			<ul class="submenu">
-
-				<li class="active">
+				<?php if($allows=='all' or (isset($allows['Clients']['index']) and $allows['Clients']['index'])) :?>
+				<li class="<?php echo (($current_page=='clientsindex')?'active':'');?>">
 					<a href="/clients/index">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('Client list sidebar');?>
@@ -33,8 +33,10 @@
 
 					<b class="arrow"></b>
 				</li>
+				<?php endif;?>
 
-				<li class="">
+				<?php if($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) :?>
+				<li class="<?php echo (($current_page=='clientsadd')?'active':'');?>">
 					<a href="/clients/add">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('Add new Client sidebar');?>
@@ -42,8 +44,9 @@
 
 					<b class="arrow"></b>
 				</li>
-
-				<li class="">
+				<?php endif;?>
+				<?php if($allows=='all' or (isset($allows['ClientRequest']['index']) and $allows['ClientRequest']['index'])) :?>
+				<li class="<?php echo (($current_page=='client_requestindex')?'active':'');?>">
 					<a href="/client_request">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('Request list');?>
@@ -51,8 +54,9 @@
 
 					<b class="arrow"></b>
 				</li>
-
-				<li class="">
+				<?php endif;?>
+				<?php if($allows=='all' or (isset($allows['ClientRequest']['add']) and $allows['ClientRequest']['add'])) :?>
+				<li class="<?php echo (($current_page=='client_requestadd')?'active':'');?>">
 					<a href="/client_request/add">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('New Request');?>
@@ -60,10 +64,10 @@
 
 					<b class="arrow"></b>
 				</li>
-
-
+				<?php endif;?>
 			</ul>
 		</li>
+		<?php endif;?>
 	</ul><!-- /.nav-list -->
 
 	<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">

@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine on
-RewriteBase /web/
+RewriteBase /html/web/
 
 RewriteRule ^$ webroot/ [L]
 RewriteRule (.*) webroot/$1 [L]

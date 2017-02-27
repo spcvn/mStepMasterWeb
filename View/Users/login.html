@@ -21,7 +21,7 @@
                         <fieldset>
                             <label class="block clearfix">
                                 <span class="block input-icon input-icon-right">
-                                    <input type="text" name="data[TblMstepMasterUser][login_id]" class="form-control" placeholder="<?php echo __('Email address');?>" />
+                                    <input type="text" name="data[TblMstepMasterUser][login_id]" class="form-control" placeholder="<?php echo __('ID');?>" />
                                     <i class="ace-icon fa fa-user"></i>
                                 </span>
                             </label>
@@ -37,7 +37,7 @@
 
                             <div class="clearfix">
                                 <label class="inline">
-                                    <input type="checkbox" class="ace" />
+                                    <input type="checkbox" name="data[TblMstepMasterUser]['remember']" class="ace" />
                                     <span class="lbl"> <?php echo __('Remember password');?></span>
                                 </label>
 
@@ -52,7 +52,7 @@
                     </form>
 
                     <div class="space-4"></div>
-                    <div class="well well-sm">Last login: Wed Jan 18 20:41:56 2017 from 192.168.1.98</div>
+                    <div class="well well-sm"><?php echo $last_logged;?></div>
 
                 </div><!-- /.widget-main -->
 

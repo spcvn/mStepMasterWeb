@@ -31,6 +31,7 @@
 
 								<form class="form-horizontal" id="client-form">
 									<input type="hidden" name="client_id" id="client-id" />
+									<input type="hidden" name="request_id" id="request-id" />
 									<h3 class="lighter block green"><?= __('General Information') ?></h3>
 									<div class="form-group">
 										<label for="client-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Client Name') ?><span class="required">※</span></label>
@@ -60,15 +61,6 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="fax" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Fax') ?></label>
-										<div class="col-xs-12 col-sm-5">
-											<span class="block input-icon">
-												<input type="tel" name="client_fax" id="fax" class="width-100" />
-												<i class="ace-icon fa fa-fw fa-fax"></i>
-											</span>
-										</div>
-									</div>
-									<div class="form-group">
 										<label for="email-s" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Email') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
@@ -85,6 +77,15 @@
 											</div>
 										</div>
 									</div>
+									<div class="form-group">
+										<label for="fax" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Fax') ?></label>
+										<div class="col-xs-12 col-sm-5">
+											<span class="block input-icon">
+												<input type="tel" name="client_fax" id="fax" class="width-100" />
+												<i class="ace-icon fa fa-fw fa-fax"></i>
+											</span>
+										</div>
+									</div>
 
 									<h3 class="lighter block green"><?= __('Contact Information') ?></h3>
 									<div class="form-group">
@@ -97,10 +98,10 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="job-title" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Job title') ?><span class="required">※</span></label>
+										<label for="job-title" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Job title') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="contact_jobtitle" id="job-title" required class="width-100" />
+												<input type="text" name="contact_jobtitle" id="job-title" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-ellipsis-h"></i>
 											</span>
 										</div>
@@ -150,7 +151,7 @@
 												<i class="ace-icon fa fa-fw fa-globe"></i>
 											</span>
 										</div>
-										<div class="help-block col-xs-12 col-sm-reset inline"> .mstep.com </div>
+										<div class="help-block col-xs-12 col-sm-reset inline"> .<?=DOMAIN_NAME_MSTEP?></div>
 									</div>
 									<div class="form-group">
 										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?><span class="required">※</span></label>
@@ -205,39 +206,39 @@
 									<div class="row">
 										<div class="col col-lg-2 col-md-2"></div>
 										<div class="col col-lg-8 col-md-8">
-											<h3 class="text-center block blue">CONGRATULATION !</h3>
+											<h3 class="text-center block blue"><?= __('CONGRATULATION !') ?></h3>
 											<div class="profile-user-info">
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">CLIENT</label>
-													<span class="profile-info-value col col-lg-9 col-md-8 client-name">.mstep.com</span>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('CLIENT') ?></label>
+													<span class="profile-info-value col col-lg-9 col-md-8 client-name">.<?=DOMAIN_NAME_MSTEP?></span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Domain</label>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Domain') ?></label>
 													<span class="profile-info-value col col-lg-9 col-md-8 domain"></span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Contact Name</label>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Contact Name') ?></label>
 													<span class="profile-info-value col col-lg-9 col-md-8 contact-name"></span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Contact Email</label>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Contact Email') ?></label>
 													<span class="profile-info-value col col-lg-9 col-md-8 email"></span>
 												</div>
-												<h4 class="lighter block blue">Access Information</h4>
+												<h4 class="lighter block blue"><?= __('Access Information') ?></h4>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Domain</label>
-													<span class="profile-info-value col col-lg-9 col-md-8 domain">.mstep.com</span>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Domain') ?></label>
+													<span class="profile-info-value col col-lg-9 col-md-8 domain">.<?=DOMAIN_NAME_MSTEP?></span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">User(Master)</label>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('User(Master)') ?></label>
 													<span class="profile-info-value col col-lg-9 col-md-8">admin</span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Password</label>
-													<span class="profile-info-value col col-lg-9 col-md-8">123456</span>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Password') ?></label>
+													<span class="profile-info-value col col-lg-9 col-md-8 password"></span>
 												</div>
 												<div class="profile-info-row">
-													<label class="col col-lg-3 col-md-4 profile-info-name">Email</label>
+													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Email') ?></label>
 													<span class="profile-info-value col col-lg-9 col-md-8 email"></span>
 												</div>
 											</div>
@@ -254,7 +255,7 @@
 							<i class="ace-icon fa fa-fw fa-arrow-left"></i> Prev
 						</button>
 
-						<button class="btn btn-success btn-next" data-last="Finish"> Next
+						<button class="btn btn-success btn-next" data-last="OK"> Next
 							<i class="ace-icon fa fa-fw fa-arrow-right icon-on-right"></i>
 						</button>
 					</div>
@@ -263,21 +264,15 @@
 		</div>
 	</div>
 </div>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/wizard.min.js"></script>
-<script src="/assets/js/jquery.validate.min.js"></script>
-<script src="/assets/js/jquery-additional-methods.min.js"></script>
-<script src="/assets/js/bootbox.js"></script>
-<script src="/assets/js/jquery.maskedinput.min.js"></script>
-<script src="/assets/js/select2.min.js"></script>
-<script src="/assets/js/ace-elements.min.js"></script>
-<script src="/assets/js/ace.min.js"></script>
+<?php echo $this->Html->script(['/assets/js/wizard.min','/assets/js/jquery-additional-methods.min','/assets/js/bootbox','/assets/js/jquery.maskedinput.min','/assets/js/select2.min'],['block'=>'script_library']);?>
+<?php echo $this->start('second_script');?>
 <script type="text/javascript">
 	var host=location.host;
 	var BASE_URL   ="//"+host+"/";
 	var PATHNAME = window.location.pathname;
 	var client_id = PATHNAME.substring(PATHNAME.lastIndexOf('/') + 1);
 	var values={};
+	var is_request = <?php echo json_encode($is_request); ?>;
 	
 	var client_name = $('#client-name');
 	var address = $('#address');
@@ -296,26 +291,42 @@
 	var db_password = $('#db-password');
 	var email_s = $('#email-s');
 	
-	if($.isNumeric(client_id)) {
-		var client = <?php echo json_encode($client); ?>;
-		$("#client-id").val(client_id);
+	if(is_request){
+		var request = <?php echo json_encode($request); ?>;
+		$("#request-id").val(request['TblMstepClientRequest']['id']);
 		
-		client_name.val(client['ClientProfile']['client_name']);
-		address.val(client['ClientProfile']['client_address']);
-		phone.val(client['ClientProfile']['client_tel']);
-		fax.val(client['ClientProfile']['client_fax']);
-		contact_name.val(client['ClientProfile']['contact_name']);
-		job_title.val(client['ClientProfile']['contact_jobtitle']);
-		email.val(client['ClientProfile']['contact_email']);
-		mobile.val(client['ClientProfile']['contact_mobile']);
-		phone_c.val(client['ClientProfile']['contact_tel']);
-		domain.val(client['Clients'][0]['short_name']);
-		db_host.val(client['Clients'][0]['db_host']);
-		db_port.val(client['Clients'][0]['db_port']);
-		db_name.val(client['Clients'][0]['db_name']);
-		db_user.val(client['Clients'][0]['db_user']);
-		db_password.val(client['Clients'][0]['db_password']);
-		email_s.val(client['ClientProfile']['client_email']);
+		client_name.val(request['TblMstepClientRequest']['client_name']);
+		address.val(request['TblMstepClientRequest']['client_address']);
+		phone.val(request['TblMstepClientRequest']['client_tel']);
+		fax.val(request['TblMstepClientRequest']['client_fax']);
+		contact_name.val(request['TblMstepClientRequest']['contact_name']);
+		job_title.val(request['TblMstepClientRequest']['contact_jobtitle']);
+		email.val(request['TblMstepClientRequest']['contact_email']);
+		mobile.val(request['TblMstepClientRequest']['contact_mobile']);
+		phone_c.val(request['TblMstepClientRequest']['contact_tel']);
+		email_s.val(request['TblMstepClientRequest']['client_email']);
+	}else{
+		if($.isNumeric(client_id)) {
+			var client = <?php echo json_encode($client); ?>;
+			$("#client-id").val(client_id);
+			
+			client_name.val(client['ClientProfile']['client_name']);
+			address.val(client['ClientProfile']['client_address']);
+			phone.val(client['ClientProfile']['client_tel']);
+			fax.val(client['ClientProfile']['client_fax']);
+			contact_name.val(client['ClientProfile']['contact_name']);
+			job_title.val(client['ClientProfile']['contact_jobtitle']);
+			email.val(client['ClientProfile']['contact_email']);
+			mobile.val(client['ClientProfile']['contact_mobile']);
+			phone_c.val(client['ClientProfile']['contact_tel']);
+			domain.val(client['Clients'][0]['short_name']);
+			db_host.val(client['Clients'][0]['db_host']);
+			db_port.val(client['Clients'][0]['db_port']);
+			db_name.val(client['Clients'][0]['db_name']);
+			db_user.val(client['Clients'][0]['db_user']);
+			db_password.val(client['Clients'][0]['db_password']);
+			email_s.val(client['ClientProfile']['client_email']);
+		}
 	}
 	
 	$(':checkbox.cp_chk').each(function () {
@@ -357,7 +368,7 @@
 				$('.input-step form').find('input').each(function(index, el) {
 					var lag = $(this).attr('id');
 					if(lag == 'domain'){
-						$('.confirm-step').find('span#'+lag).html($(this).val() + '<span style="color:red">.mstep.com</span>');
+						$('.confirm-step').find('span#'+lag).html($(this).val() + '<span style="color:red">.<?=DOMAIN_NAME_MSTEP?></span>');
 					}
 					else if(lag == 'db-password'){
 						$('.confirm-step').find('span#'+lag).html('********');
@@ -373,67 +384,94 @@
 			}
 		}
 		else if(info.step == 2){
-			e.preventDefault();
-			// Save to data
-			var dataForm = $("#client-form").serialize();
-			
-			$.post(BASE_URL+'clients/saveData', dataForm, function (res) {
-	        	if (res.status=='YES'){
-	        		$('.confirm-step').find('.input-icon > span').each(function(index, el) {
-	    				var __id = $(this).attr('id');
-	    				$('.finish-step').find('span.'+__id).html($(this).html());
-	    			});
-	        		
-	        		$('#fuelux-wizard-container').wizard('selectedItem', {step: 3});
-	        	}else{
-	        		if(res.status=='DB'){
-	        			$.confirm({
-	        				title: "Alert",
-	        				content:'DB connect fail',
-							buttons: {
-								yes:{
-									text: 'Yes',
-						            btnClass: 'btn-blue',
-						            action: function () {
-						                
-						            }
+			if(info.direction == "next"){
+				e.preventDefault();
+				// Save to data
+				var dataForm = $("#client-form").serialize();
+				
+				$.post(BASE_URL+'clients/saveData', dataForm, function (res) {
+		        	if (res.status=='YES'){
+		        		$('.confirm-step').find('.input-icon > span').each(function(index, el) {
+		    				var __id = $(this).attr('id');
+		    				$('.finish-step').find('span.'+__id).html($(this).html());
+		    			});
+		        		if(res.pass_show != undefined){
+		        			$('.finish-step').find('span.password').html(res.pass_show);
+		        		}else{
+		        			$('.finish-step').find('span.password').html("********");
+		        		}
+		        		
+		        		$('#fuelux-wizard-container').wizard('selectedItem', {step: 3});
+		        	}else{
+		        		if(res.status=='DB'){
+		        			$.confirm({
+		        				title: "<?php echo __('Alert');?>",
+		        				content:"<?php echo __('DB connect fail!');?>",
+								buttons: {
+									yes:{
+										text: 'OK',
+							            btnClass: 'btn-blue',
+							            action: function () {
+							                
+							            }
+									}
 								}
-							}
-						});
-	        		}else{
-	        			$.confirm({
-	        				title: "Alert",
-	        				content:'Fail',
-							buttons: {
-								yes:{
-									text: 'Yes',
-						            btnClass: 'btn-blue',
-						            action: function () {
-						            	window.location=BASE_URL+"clients/add";
-						            }
+							});
+		        		}else{
+		        			$.confirm({
+		        				title: "<?php echo __('Alert');?>",
+		        				content:"<?php echo __('Fail!');?>",
+								buttons: {
+									yes:{
+										text: 'OK',
+							            btnClass: 'btn-blue',
+							            action: function () {
+							            	window.location=BASE_URL+"clients/add";
+							            }
+									}
 								}
-							}
-						});
-	        		}
-	        	}
-			}, 'json');
+							});
+		        		}
+		        	}
+				}, 'json');
+			}
 		}
 	})
 	.on('finished.fu.wizard', function(e) {
-		bootbox.dialog({
-			message: "Thank you! Your information was successfully saved!", 
-			buttons: {
-				"success" : {
-					"label" : "OK",
-					"className" : "btn-sm btn-primary"
-				}
-			}
-		});
+		window.location=BASE_URL+"clients";
 	}).on('stepclick.fu.wizard', function(e){
 		
 	});
 	
+	$.validator.addMethod("notEqual", function(value, element, param) {
+		  return param.indexOf(value);
+		}, "Please specify a different (non-default) value");
+	
 	$('#client-form').validate({
+		rules: {
+			client_email:{	
+				pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+			},
+			contact_email:{
+				pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+			},
+			short_name:{
+				notEqual:["pm", "lp", "demo", "master"],
+			},
+			client_tel:{
+				pattern: /[0-9\-]+/,
+			},
+			client_fax:{
+				pattern: /[0-9\-]+/,
+			},
+			contact_mobile:{
+				pattern: /[0-9\-]+/,
+			},
+			contact_tel:{
+				pattern: /[0-9\-]+/,
+			},
+		},
+		
 		errorElement: 'div',
 		errorClass: 'invalid',
 		focusInvalid: false,
@@ -460,11 +498,6 @@
 				error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
 			}
 			else error.insertAfter(element.parent());
-		},
-
-		submitHandler: function (form) {
-		},
-		invalidHandler: function (form) {
 		}
 	});
 	// Update html step2
@@ -483,3 +516,4 @@
 		});
 	});
 </script>
+<?php $this->end();?>

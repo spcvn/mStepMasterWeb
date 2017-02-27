@@ -9,12 +9,12 @@
 			<table id="request_table" class="table table-striped table-bordered table-hover">
 				<thead>
 				<tr>
-					<th><?= __('No.') ?></th>
+					<th class="hidden-480"><?= __('No.') ?></th>
 					<th><?= __('Requester') ?></th>
-					<th><?= __('Date request') ?></th>
+					<th class="hidden-480"><?= __('Date request') ?></th>
 					<th><?= __('Client name') ?></th>
 					<th><?= __('Status') ?></th>
-					<th><?= __('Created by') ?></th>
+					<th class="hidden-480"><?= __('Created by') ?></th>
 					<th><?= __('Action') ?></th>
 				</tr>
 				</thead>
@@ -24,31 +24,125 @@
 				if(!empty($request) and sizeof($request)) :
 					foreach($request as $row) : ?>
 				<tr>
-					<td><?php echo $n++;?><input type="hidden" name="request_id" value="<?php echo $row['TblMstepClientRequest']['id'];?>"/></td>
+					<td class="hidden-480"><?php echo $n++;?></td>
 					<td><?php echo $row['Requester']['first_name'].$row['Requester']['last_name'];?></td>
-					<td><?php echo $row['TblMstepClientRequest']['created_date'];?></td>
+					<td class="hidden-480"><?php echo $row['TblMstepClientRequest']['created_date'];?></td>
 					<td><?php echo $row['TblMstepClientRequest']['client_name'];?></td>
 					<td><?php echo mb_strtoupper($row['TblMstepClientRequest']['status']);?></td>
-					<td><?php echo $row['Creator']['first_name'].$row['Creator']['last_name'];?></td>
+					<td class="hidden-480"><?php echo $row['Creator']['first_name'].$row['Creator']['last_name'];?></td>
 					<td>
-						<button class="btn-detail btn btn-info btn-xs" title="Detail">
-							<i class="fa ace-icon fa-eye bigger-130 icon-only"></i>
-						</button>
-						<button class="btn-edit btn btn-success btn-xs" title="Edit">
-							<i class="fa ace-icon fa-edit bigger-130 icon-only"></i>
-						</button>
-						<button class="btn-delete btn btn-danger btn-xs" title="Delete">
-							<i class="fa ace-icon fa-trash bigger-130 icon-only"></i>
-						</button>
-						<button class="btn-return btn btn-warning btn-xs" title="Return">
-							<i class="fa ace-icon fa-reply bigger-130 icon-only"></i>
-						</button>
-						<button class="btn-reject btn btn-danger btn-xs" title="Reject">
-							<i class="fa ace-icon fa-times bigger-130 icon-only"></i>
-						</button>
-						<button class="btn-create btn btn-success btn-xs" title="Create">
-							<i class="fa ace-icon fa-share bigger-130 icon-only"></i>
-						</button>
+						<input type="hidden" name="request_id" value="<?php echo $row['TblMstepClientRequest']['id'];?>"/>
+						<input type="hidden" name="client_id" value="<?php echo $row['TblMstepClientRequest']['client_id'];?>"/>
+						<input type="hidden" name="request_status" value="<?php echo $row['TblMstepClientRequest']['status'];?>"/>
+						<div class="hidden-sm hidden-xs action-buttons">
+							<?php if($allows=='all' or ((isset($allows['ClientRequest']['detail']) and $allows['ClientRequest']['detail']))) :?>
+							<button class="btn-detail btn btn-info btn-xs" title="Detail">
+								<i class="fa ace-icon fa-eye bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['Clients']['detail']) and $allows['Clients']['detail'])) and $row['TblMstepClientRequest']['status']=='created') :?>
+							<button class="btn-client-detail btn btn-yellow btn-xs" title="Client Detail">
+								<i class="fa ace-icon fa-external-link bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['ClientRequest']['edit']) and $allows['ClientRequest']['edit'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+							<button class="btn-edit btn btn-success btn-xs" title="Edit">
+								<i class="fa ace-icon fa-edit bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['ClientRequest']['delete']) and $allows['ClientRequest']['delete'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+							<button class="btn-delete btn btn-danger btn-xs" title="Delete">
+								<i class="fa ace-icon fa-trash bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','returned','rejected'))) :?>
+							<button class="btn-return btn btn-warning btn-xs" title="Return">
+								<i class="fa ace-icon fa-reply bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+							<button class="btn-reject btn btn-danger btn-xs" title="Reject">
+								<i class="fa ace-icon fa-times bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+							<?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+							<button class="btn-create btn btn-success btn-xs" title="Create">
+								<i class="fa ace-icon fa-share bigger-130 icon-only"></i>
+							</button>
+							<?php endif;?>
+						</div>
+						<div class="hidden-md hidden-lg">
+							<div class="inline pos-rel">
+								<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+									<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+								</button>
+								<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+									<?php if($allows=='all' or (isset($allows['ClientRequest']['detail']) and $allows['ClientRequest']['detail'])) :?>
+									<li>
+										<a href="#" class="btn-detail tooltip-info" data-rel="tooltip" title="<?php echo __('Detail');?>">
+											<span class="blue">
+												<i class="ace-icon fa fa-eye bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['Clients']['detail']) and $allows['Clients']['detail'])) and $row['TblMstepClientRequest']['status']=='created') :?>
+									<li>
+										<a href="#" class="btn-client-detail tooltip-warning" data-rel="tooltip" title="<?php echo __('Client detail');?>">
+											<span class="yellow">
+												<i class="ace-icon fa fa-external-link bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['ClientRequest']['edit']) and $allows['ClientRequest']['edit'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+									<li>
+										<a href="#" class="btn-edit tooltip-success" data-rel="tooltip" title="<?php echo __('Edit');?>">
+											<span class="green">
+												<i class="ace-icon fa fa-edit bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['ClientRequest']['delete']) and $allows['ClientRequest']['delete'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+									<li>
+										<a href="#" class="btn-delete tooltip-error" data-rel="tooltip" title="<?php echo __('Delete');?>">
+											<span class="red">
+												<i class="ace-icon fa fa-trash bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+									<li>
+										<a href="#" class="btn-return tooltip-warning" data-rel="tooltip" title="<?php echo __('Return');?>">
+											<span class="yellow">
+												<i class="ace-icon fa fa-reply bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+									<li>
+										<a href="#" class="btn-reject tooltip-error" data-rel="tooltip" title="<?php echo __('Reject');?>">
+											<span class="red">
+												<i class="ace-icon fa fa-times bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+									<?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+									<li>
+										<a href="#" class="btn-create tooltip-success" data-rel="tooltip" title="<?php echo __('Create');?>">
+											<span class="green">
+												<i class="ace-icon fa fa-share bigger-120"></i>
+											</span>
+										</a>
+									</li>
+									<?php endif;?>
+								</ul>
+							</div>
+						</div>
 					</td>
 				</tr>
 				<?php endforeach;
@@ -59,19 +153,26 @@
 	</div>
 </div>
 <?php echo $this->Html->script(['/assets/js/jquery.dataTables.min','/assets/js/dataTables.select.min','/assets/js/jquery.dataTables.bootstrap.min'],array('block'=>'script_library'));?>
+<?php $this->start('second_script');?>
 <script type="text/javascript">
+	var find_request_id=function(){
+		return $(this).parents('td').first().find(':hidden[name="request_id"]').val();
+	}
+	var find_client_id=function(){
+		return $(this).parents('td').first().find(':hidden[name="client_id"]').val();
+	}
 	$('#request_table').DataTable();
 	$(function() {
 		// edit request
-		$('#request_table button.btn-edit').on('click',function(e){
+		$('#request_table .btn-edit').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find('td:first input[name="request_id"]').val();
+			var request_id=find_request_id.call(obj);
 			location.href='<?php echo Router::url(array("controller"=>"client_request","action"=>"edit"))?>/'+request_id;
 		});
 		// create client
-		$('#request_table button.btn-create').on('click',function(e){
+		$('#request_table .btn-create').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find('td:first input[name="request_id"]').val();
+			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
 				title:'Confirm!',
@@ -81,7 +182,7 @@
 						text: '<?php echo __('Create');?>',
 						btnClass: 'btn-success',
 						action: function(){
-							location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"add"))?>/'+request_id;
+							location.href='<?php echo Router::url(array("controller"=>"Clients","action"=>"add"))?>/?request_id='+request_id;
 						}
 					},
 					cancel: function(){
@@ -92,9 +193,9 @@
 		});
 
 		// create client
-		$('#request_table button.btn-delete').on('click',function(e){
+		$('#request_table .btn-delete').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find('td:first input[name="request_id"]').val();
+			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
 				title:'Confirm!',
@@ -114,10 +215,7 @@
 											btnClass:'btn-danger',
 											action:function(){
 												if(res.status=='YES') {
-//													$('body').reload();
-//													return false;
-												} else {
-													return false;
+													location.reload(true);
 												}
 											}
 										}
@@ -134,16 +232,23 @@
 		});
 
 		// create view detail
-		$('#request_table button.btn-detail').on('click',function(e){
+		$('#request_table .btn-detail').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find('td:first input[name="request_id"]').val();
+			var request_id=find_request_id.call(obj);
 			location.href='<?php echo Router::url(array("controller"=>"ClientRequest","action"=>"detail"))?>/'+request_id;
 		});
 
-		// return button
-		$('button.btn-return').on('click',function(e){
+		// create view client detail
+		$('#request_table .btn-client-detail').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find(':hidden[name=id]').val();
+			var client_id=find_client_id.call(obj);
+			location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"detail"))?>/'+client_id;
+		});
+
+		// return button
+		$('#request_table .btn-return').on('click',function(e){
+			var obj=$(this);
+			var request_id=find_request_id.call(obj);
 			$.confirm({
 				title:'<?php echo __('Return');?>!',
 				content:"<form>" +
@@ -165,7 +270,7 @@
 								return false;
 							}
 
-							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>',{id:request_id, status:'status',value:'returned',reason:reason.val()},function(res){
+							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>',{id:request_id, status:'returned',reason:reason.val()},function(res){
 								$.confirm({
 									title:'Alert!',
 									content: res.message,
@@ -175,9 +280,7 @@
 											btnClass:'btn-danger',
 											action:function(){
 												if(res.status=="YES"){
-//													return true;
-												} else {
-													return false;
+													location.reload(true);
 												}
 											}
 										}
@@ -193,9 +296,9 @@
 			});
 		});
 		// reject button
-		$('button.btn-reject').on('click',function(e){
+		$('#request_table .btn-reject').on('click',function(e){
 			var obj=$(this);
-			var request_id=obj.parents('tr').first().find(':hidden[name=id]').val();
+			var request_id=find_request_id.call(obj);
 			$.confirm({
 				title:'<?php echo __('Reject');?>!',
 				content:"<form>" +
@@ -217,7 +320,7 @@
 								return false;
 							}
 
-							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>', {id:request_id, status:'status',value:'rejected',reason:reason.val()}, function(res){
+							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>', {id:request_id, status:'rejected',reason:reason.val()}, function(res){
 								$.confirm({
 									title:'Alert!',
 									content: res.message,
@@ -227,9 +330,7 @@
 											btnClass:'btn-danger',
 											action:function(){
 												if(res.status=="YES"){
-//													return false;
-												} else {
-													return false;
+													location.reload(true);
 												}
 											}
 										}
@@ -246,3 +347,4 @@
 		});
 	});
 </script>
+<?php $this->end();?>

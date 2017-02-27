@@ -5,21 +5,21 @@
 				<li class="active">
 					<a data-toggle="tab" href="#general">
 						<i class="green ace-icon fa fa-info bigger-120"></i>
-						General Information
+						<?php echo __('General Information');?>
 					</a>
 				</li>
 
 				<li>
 					<a data-toggle="tab" href="#contact">
 						<i class="purple ace-icon fa fa-envelope bigger-120"></i>
-						Contact Information
+						<?php echo __('Contact Information');?>
 					</a>
 				</li>
 
 				<li>
 					<a data-toggle="tab" href="#system">
 						<i class="brown ace-icon fa fa-cogs bigger-120"></i>
-						System Information
+						<?php echo __('System Information');?>
 					</a>
 				</li>
 			</ul>
@@ -27,12 +27,12 @@
 				<div id="general" class="tab-pane fade in active">
 					<div class="general-info">
 						<h4 class="blue">
-							<span class="middle">General Information</span>
+							<span class="middle"><?php echo __('General Information');?></span>
 						</h4>
 
 						<div class="profile-user-info">
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Client name </div>
+								<div class="profile-info-name"><?php echo __('Client name');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['client_name']?></span>
@@ -40,7 +40,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Address </div>
+								<div class="profile-info-name"><?php echo __('Address');?> </div>
 
 								<div class="profile-info-value">
 									<i class="fa fa-map-marker light-orange bigger-110"></i>
@@ -49,7 +49,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Phone </div>
+								<div class="profile-info-name"><?php echo __('Phone');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['client_tel']?></span>
@@ -57,7 +57,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Fax </div>
+								<div class="profile-info-name"><?php echo __('Fax');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['client_fax']?></span>
@@ -70,12 +70,12 @@
 				<div id="contact" class="tab-pane fade">
 					<div class="contact-info">
 						<h4 class="blue">
-							<span class="middle">Contact Information</span>
+							<span class="middle"><?php echo __('Contact Information');?></span>
 						</h4>
 
 						<div class="profile-user-info">
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Contact name </div>
+								<div class="profile-info-name"><?php echo __('Contact name');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['contact_name']?></span>
@@ -83,7 +83,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Job title </div>
+								<div class="profile-info-name"><?php echo __('Job title');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['contact_jobtitle']?></span>
@@ -91,7 +91,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Email </div>
+								<div class="profile-info-name"><?php echo __('Email');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['contact_email']?></span>
@@ -99,7 +99,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Mobile </div>
+								<div class="profile-info-name"><?php echo __('Mobile');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['contact_mobile']?></span>
@@ -107,7 +107,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Phone </div>
+								<div class="profile-info-name"><?php echo __('Phone');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['ClientProfile']['contact_tel']?></span>
@@ -120,12 +120,12 @@
 				<div id="system" class="tab-pane fade">
 					<div class="system-info">
 						<h4 class="blue">
-							<span class="middle">System Information</span>
+							<span class="middle"><?php echo __('System Information');?></span>
 						</h4>
 
 						<div class="profile-user-info">
 							<div class="profile-info-row">
-								<div class="profile-info-name"> Domain </div>
+								<div class="profile-info-name"><?php echo __('Domain');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['short_name']?></span>
@@ -133,7 +133,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> DB host </div>
+								<div class="profile-info-name"><?php echo __('DB host');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['db_host']?></span>
@@ -141,7 +141,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> DB Name </div>
+								<div class="profile-info-name"><?php echo __('DB Name');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['db_name']?></span>
@@ -149,7 +149,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> DB Users </div>
+								<div class="profile-info-name"><?php echo __('DB Users');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['db_user']?></span>
@@ -157,7 +157,7 @@
 							</div>
 
 							<div class="profile-info-row">
-								<div class="profile-info-name"> DB Password </div>
+								<div class="profile-info-name"><?php echo __('DB Password');?> </div>
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['db_password']?></span>
@@ -166,7 +166,23 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
+		</div>
+		<div class="space-4"></div>
+		<div>
+			<input type="hidden" name="client_id" value="<?php echo $client['Clients'][0]['id']?>"/>
+			<button class="btn-edit btn btn-yellow" title="<?php echo __('Edit');?>">
+				<i class="fa fa-edit"></i>&nbsp;<?php echo __('Edit');?></button>
 		</div>
 	</div>
 </div>
+<?php $this->start('second_script');?>
+<script type="text/javascript">
+	$(function(){
+		$('button.btn-edit').on('click', function(e){
+			location.href='<?php echo Router::url(['controller'=>'Clients','action'=>'add']);?>/'+$(this).parent().find(':hidden[name=client_id]').val();
+		});
+	});
+</script>
+<?php $this->end();?>
