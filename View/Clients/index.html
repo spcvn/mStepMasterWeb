@@ -108,19 +108,30 @@
 <?php $this->start('second_script');?>
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    $('#dynamic-table').DataTable();
-
     $(function(){
     	var host=location.host;
         var BASE_URL   ="//"+host+"/";
 
-        $("td[data-type=\"check-db-status\"]").each(function(){
-        	var target = $(this);
-        	var params = target.data('db');
-        	$.post(BASE_URL+'clients/checkConnectDB', params, function (res) {
-            	target.html(res['status']);
-			}, 'json');
+        function checkDB(){
+	        $("td[data-type=\"check-db-status\"]").each(function(){
+	        	var target = $(this);
+	        	var params = target.data('db');
+	        	$.post(BASE_URL+'clients/checkConnectDB', params, function (res) {
+	            	target.html(res['status']);
+				}, 'json');
+	        });
+        }
+        
+        $('#dynamic-table').DataTable({
+        	"initComplete": function(){
+        		checkDB();
+        	}
         });
+        
+        $('#dynamic-table').on('draw.dt', function(){
+        	checkDB();
+        });
+        
         // button edit and detail
         $(document).on('click', '.btn-redirect',function(e){
             var obj=$(this);
