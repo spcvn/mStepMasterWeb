@@ -1,7 +1,7 @@
 # English Locale
 
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "ダッシュボード"
 
 msgid "overview &amp; stats"
 msgstr "overview &amp; stats"
@@ -124,7 +124,7 @@ msgid "Password"
 msgstr "パスワード"
 
 msgid "Remember password"
-msgstr "Remember password"
+msgstr "パスワードを保存する"
 
 msgid "Client sidebar"
 msgstr "顧客"
@@ -236,10 +236,10 @@ msgid "Confirm"
 msgstr "確認"
 
 msgid "Would you like continue to deploy system for client"
-msgstr "システム対応継続しますか？"
+msgstr "{0}、システム対応継続しますか？"
 
 msgid "Would you like continue to remove request to deploy system of client"
-msgstr "依頼削除継続しますか？"
+msgstr "{0依頼削除継続しますか？"
 
 msgid "Delete"
 msgstr "削除する"
@@ -440,6 +440,9 @@ msgstr "パスワード"
 msgid "Prev"
 msgstr "前へ"
 
+msgid "Previous"
+msgstr "前へ"
+
 msgid "Next"
 msgstr "次へ"
 
@@ -447,22 +450,31 @@ msgid "DB connect fail!"
 msgstr "DB接続失敗"
 
 msgid "First"
-msgstr ""
-
-msgid "Previous"
-msgstr "前"
-
-msgid "Next"
-msgstr "次"
+msgstr "最初へ"
 
 msgid "Last"
-msgstr ""
+msgstr "最後へ"
 
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 msgid "Request list"
-msgstr ""
+msgstr "依頼リスト"
 
 msgid "New request"
-msgstr ""
+msgstr "新規依頼"
+
+msgid "Detail"
+msgstr "詳細"
+
+msgid "Client detail"
+msgstr "顧客詳細"
+
+msgid "Clients"
+msgstr "顧客"
+
+msgid "Display 10 records"
+msgstr "_MENU_レコード　表示"
+
+msgid "Showing 1 to 5 of 5 entries"
+msgstr "_TOTAL_件のうち_START_~_END_を表示"

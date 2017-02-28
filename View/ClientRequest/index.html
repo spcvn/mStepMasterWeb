@@ -41,7 +41,7 @@
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['Clients']['detail']) and $allows['Clients']['detail'])) and $row['TblMstepClientRequest']['status']=='created') :?>
-							<button class="btn-client-detail btn btn-yellow btn-xs" title="<?php echo __('Client Detail');?>">
+							<button class="btn-client-detail btn btn-yellow btn-xs" title="<?php echo __('Client detail');?>">
 								<i class="fa ace-icon fa-external-link bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
@@ -152,7 +152,7 @@
 		</div>
 	</div>
 </div>
-<?php echo $this->Html->script(['/assets/js/jquery.dataTables.min','/assets/js/dataTables.select.min','/assets/js/jquery.dataTables.bootstrap.min'],array('block'=>'script_library'));?>
+<?php echo $this->Html->script(['/assets/js/jquery.dataTables.min','/assets/js/dataTables.select.min','/assets/js/jquery.dataTables.bootstrap.min','/assets/js/custom'],array('block'=>'script_library'));?>
 <?php $this->start('second_script');?>
 <script type="text/javascript">
 	var find_request_id=function(agr1){
@@ -178,7 +178,8 @@
 				}
 			},
 			'search':'<?php echo __('Search');?>',
-			'lengthMenu':'<?php echo __('Display _MENU_ records');?>',
+			'lengthMenu':'<?php echo __('Display 10 records');?>',
+			'info':'<?php echo __('Showing 1 to 5 of 5 entries');?>'
 		}
 	});
 	$(function() {
@@ -194,8 +195,8 @@
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
-				title:'Confirm!',
-				content:"Would you like continue to deploy system for client "+client_name,
+				title:'<?php echo __('Confirm');?>!',
+				content:"<?php echo __('Would you like continue to deploy system for client');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Create');?>',
@@ -204,8 +205,12 @@
 							location.href='<?php echo Router::url(array("controller"=>"Clients","action"=>"add"))?>/?request_id='+request_id;
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							
+							// close
+						}
 					}
 				}
 			});
@@ -217,8 +222,8 @@
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
-				title:'Confirm!',
-				content:"Would you like continue to remove request to deploy system of client "+client_name,
+				title:'<?php echo __('Confirm');?>!',
+				content:"<?php echo __('Would you like continue to remove request to deploy system of client ');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Delete');?>',
@@ -243,8 +248,11 @@
 							}, 'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action: function(){
+							// close
+						}
 					}
 				}
 			});
@@ -308,8 +316,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text:'<?php echo __('Cancel');?>',
+						action: function(){
+							// close
+						}
 					}
 				}
 			});
@@ -358,8 +369,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text:'<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});

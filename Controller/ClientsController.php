@@ -20,6 +20,8 @@ class ClientsController extends AppController {
     ];
 
 	public function index(){
+		
+		$this->page_title=__('Clients');
 	    $this->ClientProfile->bindModel(array(
             'hasMany' => array(
                     'Clients' => array(
