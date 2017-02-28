@@ -64,7 +64,7 @@ msgid "See all messages"
 msgstr "See all messages"
 
 msgid "Welcome"
-msgstr "Welcome"
+msgstr "ようこそ"
 
 msgid "Settings"
 msgstr "セッチング"
@@ -127,10 +127,342 @@ msgid "Remember password"
 msgstr "Remember password"
 
 msgid "Client sidebar"
-msgstr "Client"
+msgstr "顧客"
 
 msgid "Client list sidebar"
-msgstr "Client list"
+msgstr "顧客一覧"
 
 msgid "Add new Client sidebar"
-msgstr "Add new Client"
+msgstr "新規顧客追加"
+
+#Client Request
+msgid "Client Request"
+msgstr "顧客依頼追加"
+
+msgid "Cannot save Client request, please try again"
+msgstr "保存できませんでした。もう一度試してください。"
+
+msgid "Your request has been saved success"
+msgstr "保存完了"
+
+msgid "Status has beed updated success to"
+msgstr "ステータス保存完了"
+
+msgid "Cannot delete this Client request, please try again"
+msgstr "顧客追加依頼を削除できません。もう一度試してください。"
+
+msgid "Request has been deleted success"
+msgstr "削除完了"
+
+msgid "Client information"
+msgstr "顧客情報"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Address"
+msgstr "住所"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Contact information"
+msgstr "担当者連絡先"
+
+msgid "Contact name"
+msgstr "担当者名"
+
+msgid "Job title"
+msgstr "役職"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Mobile"
+msgstr "携帯"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Return"
+msgstr "戻る"
+
+msgid "Reject"
+msgstr "拒否する"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Return"
+msgstr "戻る"
+
+msgid "Please tell reason that you would like to return this Request."
+msgstr "差戻しの理由をご記入ください"
+
+msgid "Please don't keep the reason field is empty"
+msgstr "理由をご記入ください。"
+
+msgid "Ok"
+msgstr "OK"
+
+msgid "Reject"
+msgstr "拒否する"
+
+msgid "Please tell reason that you would like to reject this Request."
+msgstr "依頼の取り下げ理由を記入してください。"
+
+msgid "Please don't keep the reason field is empty!"
+msgstr "理由をご記入ください。"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Confirm"
+msgstr "確認"
+
+msgid "Would you like continue to deploy system for client"
+msgstr "システム対応継続しますか？"
+
+msgid "Would you like continue to remove request to deploy system of client"
+msgstr "依頼削除継続しますか？"
+
+msgid "Delete"
+msgstr "削除する"
+
+msgid "Client name"
+msgstr "クライアント名"
+
+msgid "Client address"
+msgstr "クライアント住所"
+
+msgid "Client Email"
+msgstr "クライアントEmail"
+
+msgid "Client phone"
+msgstr "クライアント電話"
+
+msgid "Client fax"
+msgstr "クライアントFax"
+
+msgid "Email format invalid"
+msgstr "Email入力に不備があります。"
+
+msgid "Phone format invalid"
+msgstr "電話番号に不備があります。"
+
+msgid "Fax format invalid"
+msgstr "Fax番号に不備があります。"
+
+msgid "This field is required."
+msgstr "入力必須です。"
+
+msgid "Mobile format invalid"
+msgstr "携帯番号に不備があります。"
+
+msgid "Using company phone"
+msgstr "会社電話番号を使用"
+
+msgid "Using company email"
+msgstr "会社Emailを使用"
+
+msgid "Save"
+msgstr "保存する"
+
+msgid "Requester"
+msgstr "依頼者"
+
+msgid "Date request"
+msgstr "依頼日"
+
+msgid "Client name"
+msgstr "顧客名"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Created by"
+msgstr "作成者"
+
+msgid "No."
+msgstr "No."
+
+msgid "Client name"
+msgstr "顧客名"
+
+msgid "Sub domain"
+msgstr "サブドメイン"
+
+msgid "Contact name"
+msgstr "担当者名"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "DB connection"
+msgstr "DB接続"
+
+msgid "Action"
+msgstr "アクション"
+
+msgid "Activated"
+msgstr "有効にする"
+
+msgid "Deactivated"
+msgstr "無効にする"
+
+msgid "Checking..."
+msgstr "確認中"
+
+msgid "Alert"
+msgstr "アラート"
+
+msgid "Do you want to active client"
+msgstr "顧客を【有効】にしますか"
+
+msgid "Do you want to deactive client"
+msgstr "顧客を【無効】にしますか"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "Success"
+msgstr "成功"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Fail"
+msgstr "Fail"
+
+
+msgid "Input"
+msgstr "入力"
+
+msgid "Confirm"
+msgstr "確認"
+
+msgid "Finish"
+msgstr "完了"
+
+msgid "General Information"
+msgstr "共通情報"
+
+msgid "Contact Information"
+msgstr "連絡先情報"
+
+msgid "System Information"
+msgstr "システム情報"
+
+msgid "Client Name"
+msgstr "顧客名"
+
+msgid "Address"
+msgstr "住所"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Contact Name"
+msgstr "担当者名"
+
+msgid "Job title"
+msgstr "役職"
+
+msgid "Mobile"
+msgstr "携帯"
+
+msgid "Domain"
+msgstr "ドメイン"
+
+msgid "DB Host"
+msgstr "DB Host"
+
+msgid "DB Port"
+msgstr "DB Port"
+
+msgid "DB Name"
+msgstr "DB Name"
+
+msgid "DB User"
+msgstr "DB User"
+
+msgid "DB Password"
+msgstr "DB Password"
+
+msgid "Using Company Email"
+msgstr "会社Email 使用"
+
+msgid "Using Company Phone"
+msgstr "会社電話 使用"
+
+msgid "CONGRATULATION !"
+msgstr "成功"
+
+msgid "Access Information"
+msgstr "アクセス情報"
+
+msgid "CLIENT"
+msgstr "顧客"
+
+msgid "Contact Email"
+msgstr "メール"
+
+msgid "User(Master)"
+msgstr "ユーザー（Master）"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Prev"
+msgstr "前へ"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "DB connect fail!"
+msgstr "DB接続失敗"
+
+msgid "First"
+msgstr ""
+
+msgid "Previous"
+msgstr "前"
+
+msgid "Next"
+msgstr "次"
+
+msgid "Last"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Request list"
+msgstr ""
+
+msgid "New request"
+msgstr ""

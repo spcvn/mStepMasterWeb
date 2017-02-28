@@ -232,13 +232,13 @@
 			var client_name=obj.parent().find(':hidden[name=client_name]').val();
 			$.confirm({
 				title:'Confirm!',
-				content:"Would you like continue to deploy system for client "+client_name,
+				content:"<?php echo __('Would you like continue to deploy system for client ');?>"+client_name,
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Create');?>',
 						btnClass: 'btn-success',
 						action: function(){
-							location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"add"))?>/'+request_id;
+							location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"add"))?>/?request_id='+request_id;
 						}
 					},
 					cancel: function(){
@@ -255,7 +255,7 @@
 			var client_name=obj.parent().find(':hidden[name=client_name]').val();
 			$.confirm({
 				title:'Confirm!',
-				content:"Would you like continue to remove request to deploy system of client "+client_name,
+				content:"<?php echo __('Would you like continue to remove request to deploy system of client ');?>"+client_name,
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Delete');?>',
