@@ -252,10 +252,10 @@
 					<hr />
 					<div class="wizard-actions">
 						<button class="btn btn-prev">
-							<i class="ace-icon fa fa-fw fa-arrow-left"></i> Prev
+							<i class="ace-icon fa fa-fw fa-arrow-left"></i> <?= __('Prev') ?>
 						</button>
 
-						<button class="btn btn-success btn-next" data-last="OK"> Next
+						<button class="btn btn-success btn-next" data-last="<?= __('Ok') ?>"> <?= __('Next') ?>
 							<i class="ace-icon fa fa-fw fa-arrow-right icon-on-right"></i>
 						</button>
 					</div>
@@ -409,7 +409,7 @@
 		        				content:"<?php echo __('DB connect fail!');?>",
 								buttons: {
 									yes:{
-										text: 'OK',
+										text: 'Ok',
 							            btnClass: 'btn-blue',
 							            action: function () {
 							                
@@ -420,10 +420,10 @@
 		        		}else{
 		        			$.confirm({
 		        				title: "<?php echo __('Alert');?>",
-		        				content:"<?php echo __('Fail!');?>",
+		        				content:"<?php echo __('Fail');?>",
 								buttons: {
 									yes:{
-										text: 'OK',
+										text: 'Ok',
 							            btnClass: 'btn-blue',
 							            action: function () {
 							            	window.location=BASE_URL+"clients/add";
