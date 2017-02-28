@@ -27,8 +27,8 @@
                         <td><?= $client['Clients'][0]['short_name']?></td>
                         <td class="hidden-480"><?= $client['ClientProfile']['contact_name']?></td>
                         <td class="hidden-480"><?= $client['ClientProfile']['contact_mobile']?></td>
-                        <td data-type="client-status"><?= ($client['Clients'][0]['del_flg']==0)?'Activated':'Deactivated'?></td>
-                        <td class="hidden-480" data-type="check-db-status" data-db='{"host":"<?=$client['Clients'][0]['db_host']?>","user":"<?=$client['Clients'][0]['db_user']?>","name":"<?=$client['Clients'][0]['db_name']?>","pass":"<?=$client['Clients'][0]['db_password']?>","port":"<?=$client['Clients'][0]['db_port']?>"}'>Checking...</td>
+                        <td data-type="client-status"><?= ($client['Clients'][0]['del_flg']==0)?__('Activated'):__('Deactivated')?></td>
+                        <td class="hidden-480" data-type="check-db-status" data-db='{"host":"<?=$client['Clients'][0]['db_host']?>","user":"<?=$client['Clients'][0]['db_user']?>","name":"<?=$client['Clients'][0]['db_name']?>","pass":"<?=$client['Clients'][0]['db_password']?>","port":"<?=$client['Clients'][0]['db_port']?>"}'><?= __('Checking...') ?></td>
                         <td class="actions">
                             <div class="hidden-sm hidden-xs action-buttons button-list">
                                 <?php if(($allows=='all' or (isset($allows['Clients']['updateStatus']) and $allows['Clients']['updateStatus']))) :?>
@@ -163,7 +163,7 @@
                             params["status"]=0;
                             $.post(BASE_URL+'clients/updateStatus', params, function (res) {
                                 if (res.status=='YES') {
-                                    client_status.html('Activated');
+                                    client_status.html('<?php echo __('Activated');?>');
                                     target.css("display","none");
                                     client_deactive_btn.css("display","inline-block");
                                     $.confirm({
@@ -227,7 +227,7 @@
                             params["status"]=1;
                             $.post(BASE_URL+'clients/updateStatus', params, function (res) {
                                 if (res.status=='YES') {
-                                    client_status.html('Deactivated');
+                                    client_status.html('<?php echo __('Deactivated');?>');
                                     target.css("display","none");
                                     client_active_btn.css("display","inline-block");
                                     $.confirm({
@@ -261,9 +261,12 @@
                             }, 'json');
                         }
                     },
-                    cancel:function(){
-                        target.one(e.type,arguments.callee);
-                    },
+                    cancel:{
+                        text: '<?php echo __('Cancel');?>',
+                        action:function(){
+	                        target.one(e.type,arguments.callee);
+	                    },
+                    }
                 }
         	});
     	});

@@ -87,7 +87,7 @@ class ClientsController extends AppController {
 	        
 	        $this->TblMstepClientRequest->unbindFully();
 	        $request = $this->TblMstepClientRequest->findById($request_id);
-	        if(!is_numeric($request_id) || !$request || $request['TblMstepClientRequest']['status'] == 'created' || $request['TblMstepClientRequest']['client_id'] > 0){
+	        if(!is_numeric($request_id) || !$request || $request['TblMstepClientRequest']['status'] != 'requested' || $request['TblMstepClientRequest']['client_id'] > 0){
 	            throw new NotFoundException();
 	        }else{
 	            $is_request = true;
@@ -108,6 +108,8 @@ class ClientsController extends AppController {
     	        if(!$client || !is_numeric($client_id)){
     	            throw new NotFoundException();
     	        }
+    	    }else{
+    	        throw new NotFoundException();
     	    }
 	    }
 	    $this->set(compact('is_request','client','request'));

@@ -106,7 +106,7 @@
 												<i class="ace-icon fa fa-fw fa-envelope"></i>
 											</span>
 										</div>
-										<div class="help-block col-xs-12 col-sm-reset inline">
+										<div class="help-inline col-xs-12 col-sm-reset inline">
 											<div class="checkbox">
 												<label>
 													<input name="form-field-checkbox" type="checkbox" class="ace cp_chk" data-s="#email-s" data-d="#email">
@@ -132,7 +132,7 @@
 												<i class="ace-icon fa fa-fw fa-phone"></i>
 											</span>
 										</div>
-										<div class="help-block col-xs-12 col-sm-reset inline">
+										<div class="help-inline col-xs-12 col-sm-reset inline">
 											<div class="checkbox">
 												<label>
 													<input name="form-field-checkbox" type="checkbox" class="ace cp_chk" data-s="#phone" data-d="#phone-c">
@@ -151,7 +151,7 @@
 												<i class="ace-icon fa fa-fw fa-globe"></i>
 											</span>
 										</div>
-										<div class="help-block col-xs-12 col-sm-reset inline"> .<?=DOMAIN_NAME_MSTEP?></div>
+										<div class="help-inline col-xs-12 col-sm-reset inline"> .<?=DOMAIN_NAME_MSTEP?></div>
 									</div>
 									<div class="form-group">
 										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?><span class="required">※</span></label>
@@ -231,7 +231,7 @@
 												</div>
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('User(Master)') ?></label>
-													<span class="profile-info-value col col-lg-9 col-md-8">admin</span>
+													<span class="profile-info-value col col-lg-9 col-md-8"><?=CLIENT_MASTER_ACCOUNT?></span>
 												</div>
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Password') ?></label>
@@ -252,10 +252,10 @@
 					<hr />
 					<div class="wizard-actions">
 						<button class="btn btn-prev">
-							<i class="ace-icon fa fa-fw fa-arrow-left"></i> Prev
+							<i class="ace-icon fa fa-fw fa-arrow-left"></i> <?= __('Prev') ?>
 						</button>
 
-						<button class="btn btn-success btn-next" data-last="OK"> Next
+						<button class="btn btn-success btn-next" data-last="<?= __('Ok') ?>"> <?= __('Next') ?>
 							<i class="ace-icon fa fa-fw fa-arrow-right icon-on-right"></i>
 						</button>
 					</div>
@@ -409,7 +409,7 @@
 		        				content:"<?php echo __('DB connect fail!');?>",
 								buttons: {
 									yes:{
-										text: 'OK',
+										text: 'Ok',
 							            btnClass: 'btn-blue',
 							            action: function () {
 							                
@@ -420,10 +420,10 @@
 		        		}else{
 		        			$.confirm({
 		        				title: "<?php echo __('Alert');?>",
-		        				content:"<?php echo __('Fail!');?>",
+		        				content:"<?php echo __('Fail');?>",
 								buttons: {
 									yes:{
-										text: 'OK',
+										text: 'Ok',
 							            btnClass: 'btn-blue',
 							            action: function () {
 							            	window.location=BASE_URL+"clients/add";
@@ -434,6 +434,8 @@
 		        		}
 		        	}
 				}, 'json');
+				
+				$("button.btn-prev").remove();
 			}
 		}
 	})
@@ -459,21 +461,21 @@
 				notEqual:["pm", "lp", "demo", "master"],
 			},
 			client_tel:{
-				pattern: /[0-9\-]+/,
+				pattern: /^[0-9\.\+\- ]+$/,
 			},
 			client_fax:{
-				pattern: /[0-9\-]+/,
+				pattern: /^[0-9\.\+\- ]+$/,
 			},
 			contact_mobile:{
-				pattern: /[0-9\-]+/,
+				pattern: /^[0-9\.\+\- ]+$/,
 			},
 			contact_tel:{
-				pattern: /[0-9\-]+/,
+				pattern: /^[0-9\.\+\- ]+$/,
 			},
 		},
 		
 		errorElement: 'div',
-		errorClass: 'invalid',
+		errorClass: 'help-block',
 		focusInvalid: false,
 		ignore: "",
 		highlight: function (e) {
@@ -508,7 +510,7 @@
 		});
 		_step2.find('label').addClass('grey');
 		_step2.find('i').remove();
-		_step2.find('.help-block').remove();
+		_step2.find('.help-inline').remove();
 		_step2.find('.form-group > div').css({
 			'height': '28px',
 			'border-bottom': '1px dotted #ccc',
