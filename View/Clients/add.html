@@ -142,6 +142,7 @@
 										</div>
 									</div>
 
+									<?php if($allow_add_client) :?>
 									<h3 class="lighter block green"><?= __('System Information') ?></h3>
 									<div class="form-group">
 										<label for="domain" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
@@ -198,6 +199,7 @@
 											</span>
 										</div>
 									</div>
+									<?php endif;?>
 								</form>
 							</div>
 							<div class="step-pane confirm-step" data-step="2"></div>

@@ -87,6 +87,7 @@ class AppController extends Controller {
 		
 		$this->check_authentication = $this->Auth->user("authority") === "master";
 		$this->set('role', $this->check_authentication);
+		$this->set('allow_add_client', in_array($this->Auth->user("authority"), ["master", "spc"]));
 		//Update 2017.02.20 Hung Nguyen start
 		// add name for show on header
 		$this->set("login_name",($this->Auth->user("first_name").$this->Auth->user("last_name")));
@@ -119,7 +120,8 @@ class AppController extends Controller {
 				'Clients'=>array(
 					'index'=>true,
 					'detail'=>true,
-					'checkConnectDB'=>true
+					'checkConnectDB'=>true,
+			        'add'=>true
 				),
 				'ClientRequest'=>array(
 					'index'=>true,
