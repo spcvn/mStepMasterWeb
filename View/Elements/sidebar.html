@@ -35,7 +35,7 @@
 				</li>
 				<?php endif;?>
 
-				<?php if($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) :?>
+				<!-- <?php if($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) :?>
 				<li class="<?php echo (($current_page=='clientsadd')?'active':'');?>">
 					<a href="/clients/add">
 						<i class="menu-icon fa fa-caret-right"></i>
@@ -44,7 +44,7 @@
 
 					<b class="arrow"></b>
 				</li>
-				<?php endif;?>
+				<?php endif;?> -->
 				<?php if($allows=='all' or (isset($allows['ClientRequest']['index']) and $allows['ClientRequest']['index'])) :?>
 				<li class="<?php echo (($current_page=='client_requestindex')?'active':'');?>">
 					<a href="/client_request">
