@@ -65,30 +65,36 @@
 				</div>
 			</div>
 			<div class="clearfix form-actions">
-				<div class="col-md-offset-1 col-md-10">
+				<div class="col-md-offset-1 col-md-10 text-right">
 					<input type="hidden" name="id" value="<?php echo ((isset($request['TblMstepClientRequest']['id']))?$request['TblMstepClientRequest']['id']:'');?>"/>
 					<input type="hidden" name="client_name" value="<?php echo ((isset($request['TblMstepClientRequest']['client_name']))?$request['TblMstepClientRequest']['client_name']:'-')?>"/>
-					<button class="btn btn-grey pull-right" id="btn_back">
-						<i class="fa fa-arrow-left"></i>&nbsp;<?php echo __('Back');?></button>
+					
+					<button class="btn btn-grey" id="btn_back">
+						<i class="fa fa-fw fa-arrow-left"></i>&nbsp;<?php echo __('Back');?></button>
 					<?php if((isset($allows['ClientRequest']['edit']) and $allows['ClientRequest']['edit']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-					<button class="btn btn-yellow pull-right" id="btn_edit">
-						<i class="fa fa-edit"></i>&nbsp;<?php echo __('Edit');?></button>
+					
+					<button class="btn btn-yellow" id="btn_edit">
+						<i class="fa fa-fw fa-edit"></i>&nbsp;<?php echo __('Edit');?></button>
 					<?php endif;?>
 					<?php if((isset($allows['ClientRequest']['delete']) and $allows['ClientRequest']['delete']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-					<button class="btn btn-danger pull-right" id="btn_delete">
-						<i class="fa fa-trash"></i>&nbsp;<?php echo __('Delete');?></button>
+					
+					<button class="btn btn-danger" id="btn_delete">
+						<i class="fa fa-fw fa-trash"></i>&nbsp;<?php echo __('Delete');?></button>
 					<?php endif;?>
 					<?php if((isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-					<button class="btn btn-warning pull-right" id="btn_return">
-						<i class="fa fa-reply"></i>&nbsp;<?php echo __('Return');?></button>
+					
+					<button class="btn btn-warning" id="btn_return">
+						<i class="fa fa-fw fa-reply"></i>&nbsp;<?php echo __('Return');?></button>
 					<?php endif;?>
 					<?php if((isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-					<button class="btn btn-danger pull-right" id="btn_reject">
-						<i class="fa fa-times"></i>&nbsp;<?php echo __('Reject');?></button>
+					
+					<button class="btn btn-danger" id="btn_reject">
+						<i class="fa fa-fw fa-times"></i>&nbsp;<?php echo __('Reject');?></button>
 					<?php endif;?>
 					<?php if((isset($allows['Clients']['add']) and $allows['Clients']['add']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-					<button class="btn btn-success pull-right" id="btn_create">
-						<i class="fa fa-share"></i>&nbsp;<?php echo __('Create');?></button>
+					
+					<button class="btn btn-success" id="btn_create">
+						<i class="fa fa-fw fa-share"></i>&nbsp;<?php echo __('Create');?></button>
 					<?php endif;?>
 				</div>
 			</div>
