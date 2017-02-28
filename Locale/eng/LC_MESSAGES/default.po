@@ -73,7 +73,7 @@ msgid "Profile"
 msgstr "Profile"
 
 msgid "Logout"
-msgstr "Logout"
+msgstr "Profile"
 
 msgid "Home"
 msgstr "Home"
@@ -109,7 +109,7 @@ msgid "Alt. Active Item"
 msgstr "Alt. Active Item"
 
 msgid "Login title page"
-msgstr "Login page"
+msgstr "Login"
 
 msgid "Login title"
 msgstr "Login"
@@ -135,8 +135,316 @@ msgstr "Client list"
 msgid "Add new Client sidebar"
 msgstr "Add new Client"
 
-msgid "Client management"
-msgstr "Client management"
+#Client Request
+msgid "Client Request"
+msgstr "Client Request"
 
-msgid "Manage all data about Client"
-msgstr "Manage all data about Client"
+msgid "Cannot save Client request, please try again"
+msgstr "Cannot save Client request, please try again"
+
+msgid "Your request has been saved success"
+msgstr "Your request has been saved success"
+
+msgid "Status has beed updated success to"
+msgstr "Status has beed updated success to"
+
+msgid "Cannot delete this Client request, please try again"
+msgstr "Cannot delete this Client request, please try again"
+
+msgid "Request has been deleted success"
+msgstr "Request has been deleted success"
+
+msgid "Client information"
+msgstr "Client information"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Contact information"
+msgstr "Contact information"
+
+msgid "Contact name"
+msgstr "Contact name"
+
+msgid "Job title"
+msgstr "Job title"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Return"
+msgstr "Return"
+
+msgid "Reject"
+msgstr "Reject"
+
+msgid "Create"
+msgstr "Create"
+
+msgid "Return"
+msgstr "Return"
+
+msgid "Please tell reason that you would like to return this Request."
+msgstr "Please tell reason that you would like to return this Request."
+
+msgid "Please don't keep the reason field is empty"
+msgstr "Please don't keep the reason field is empty"
+
+msgid "Ok"
+msgstr "OK"
+
+msgid "Reject"
+msgstr "Reject"
+
+msgid "Please tell reason that you would like to reject this Request."
+msgstr "Please tell reason that you would like to reject this Request."
+
+msgid "Please don't keep the reason field is empty!"
+msgstr "Please don't keep the reason field is empty!"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Would you like continue to deploy system for client"
+msgstr "Would you like continue to deploy system for client"
+
+msgid "Would you like continue to remove request to deploy system of client"
+msgstr "Would you like continue to remove request to deploy system of client"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Client name"
+msgstr "Client name"
+
+msgid "Client address"
+msgstr "Client address"
+
+msgid "Client Email"
+msgstr "Client Email"
+
+msgid "Client phone"
+msgstr "Client phone"
+
+msgid "Client fax"
+msgstr "Client fax"
+
+msgid "Email format invalid"
+msgstr "Email format invalid"
+
+msgid "Phone format invalid"
+msgstr "Phone format invalid"
+
+msgid "Fax format invalid"
+msgstr "Fax format invalid"
+
+msgid "This field is required."
+msgstr "This field is required."
+
+msgid "Mobile format invalid"
+msgstr "Mobile format invalid"
+
+msgid "Using company phone"
+msgstr "Using company phone"
+
+msgid "Using company email"
+msgstr "Using company email"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "No."
+msgstr "No."
+
+msgid "Requester"
+msgstr "Requester"
+
+msgid "Date request"
+msgstr "Date request"
+
+msgid "Client name"
+msgstr "Client name"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Created by"
+msgstr "Created by"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Client name"
+msgstr "Client name"
+
+msgid "Sub domain"
+msgstr "Sub domain"
+
+msgid "Contact name"
+msgstr "Contact name"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "DB connection"
+msgstr "DB connection"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Activated"
+msgstr "Activated"
+
+msgid "Deactivated"
+msgstr "Deactivated"
+
+msgid "Checking..."
+msgstr "Checking..."
+
+msgid "Alert"
+msgstr "Alert"
+
+msgid "Do you want to active client"
+msgstr "Do you want to active client"
+
+msgid "Do you want to deactive client"
+msgstr "Do you want to deactive client"
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Fail"
+msgstr "Fail"
+
+
+msgid "Input"
+msgstr "Input"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Finish"
+msgstr "Finish"
+
+msgid "General Information"
+msgstr "General Information"
+
+msgid "Contact Information"
+msgstr "Contact Information"
+
+msgid "System Information"
+msgstr "System Information"
+
+msgid "Client Name"
+msgstr "Client Name"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Contact Name"
+msgstr "Contact Name"
+
+msgid "Job title"
+msgstr "Job title"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Domain"
+msgstr "Domain"
+
+msgid "DB Host"
+msgstr "DB Host"
+
+msgid "DB Port"
+msgstr "DB Port"
+
+msgid "DB Name"
+msgstr "DB Name"
+
+msgid "DB User"
+msgstr "DB User"
+
+msgid "DB Password"
+msgstr "DB Password"
+
+msgid "Using Company Email"
+msgstr "Using Company Email"
+
+msgid "Using Company Phone"
+msgstr "Using Company Phone"
+
+msgid "CONGRATULATION !"
+msgstr "CONGRATULATION !"
+
+msgid "Access Information"
+msgstr "Access Information"
+
+msgid "CLIENT"
+msgstr "CLIENT"
+
+msgid "Contact Email"
+msgstr "Contact Email"
+
+msgid "User(Master)"
+msgstr "User(Master)"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Prev"
+msgstr "Prev"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "DB connect fail!"
+msgstr "DB connect fail!"

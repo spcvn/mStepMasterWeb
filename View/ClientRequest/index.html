@@ -36,37 +36,37 @@
 						<input type="hidden" name="request_status" value="<?php echo $row['TblMstepClientRequest']['status'];?>"/>
 						<div class="hidden-sm hidden-xs action-buttons">
 							<?php if($allows=='all' or ((isset($allows['ClientRequest']['detail']) and $allows['ClientRequest']['detail']))) :?>
-							<button class="btn-detail btn btn-info btn-xs" title="Detail">
+							<button class="btn-detail btn btn-info btn-xs" title="<?php echo __('Detail');?>">
 								<i class="fa ace-icon fa-eye bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['Clients']['detail']) and $allows['Clients']['detail'])) and $row['TblMstepClientRequest']['status']=='created') :?>
-							<button class="btn-client-detail btn btn-yellow btn-xs" title="Client Detail">
+							<button class="btn-client-detail btn btn-yellow btn-xs" title="<?php echo __('Client detail');?>">
 								<i class="fa ace-icon fa-external-link bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['ClientRequest']['edit']) and $allows['ClientRequest']['edit'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-							<button class="btn-edit btn btn-success btn-xs" title="Edit">
+							<button class="btn-edit btn btn-success btn-xs" title="<?php echo __('Edit');?>">
 								<i class="fa ace-icon fa-edit bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['ClientRequest']['delete']) and $allows['ClientRequest']['delete'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-							<button class="btn-delete btn btn-danger btn-xs" title="Delete">
+							<button class="btn-delete btn btn-danger btn-xs" title="<?php echo __('Delete');?>">
 								<i class="fa ace-icon fa-trash bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','returned','rejected'))) :?>
-							<button class="btn-return btn btn-warning btn-xs" title="Return">
+							<button class="btn-return btn btn-warning btn-xs" title="<?php echo __('Return');?>">
 								<i class="fa ace-icon fa-reply bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['ClientRequest']['update_status']) and $allows['ClientRequest']['update_status'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-							<button class="btn-reject btn btn-danger btn-xs" title="Reject">
+							<button class="btn-reject btn btn-danger btn-xs" title="<?php echo __('Reject');?>">
 								<i class="fa ace-icon fa-times bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
 							<?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
-							<button class="btn-create btn btn-success btn-xs" title="Create">
+							<button class="btn-create btn btn-success btn-xs" title="<?php echo __('Create');?>">
 								<i class="fa ace-icon fa-share bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
@@ -152,16 +152,36 @@
 		</div>
 	</div>
 </div>
-<?php echo $this->Html->script(['/assets/js/jquery.dataTables.min','/assets/js/dataTables.select.min','/assets/js/jquery.dataTables.bootstrap.min'],array('block'=>'script_library'));?>
+<?php echo $this->Html->script(['/assets/js/jquery.dataTables.min','/assets/js/dataTables.select.min','/assets/js/jquery.dataTables.bootstrap.min','/assets/js/custom'],array('block'=>'script_library'));?>
 <?php $this->start('second_script');?>
 <script type="text/javascript">
-	var find_request_id=function(){
+	var find_request_id=function(agr1){
 		return $(this).parents('td').first().find(':hidden[name="request_id"]').val();
 	}
 	var find_client_id=function(){
 		return $(this).parents('td').first().find(':hidden[name="client_id"]').val();
 	}
-	$('#request_table').DataTable();
+	$('#request_table').DataTable({
+		language:{
+			paginate:{
+				first:"<?php echo __('First');?>",
+				previous:"<?php echo __('Previous');?>",
+				next:"<?php echo __('Next');?>",
+				last:"<?php echo __('Last');?>"
+			},
+			aria:{
+				paginate:{
+					first:"<?php echo __('First');?>",
+					previous:"<?php echo __('Previous');?>",
+					next:"<?php echo __('Next');?>",
+					last:"<?php echo __('Last');?>"
+				}
+			},
+			'search':'<?php echo __('Search');?>',
+			'lengthMenu':'<?php echo __('Display 10 records');?>',
+			'info':'<?php echo __('Showing 1 to 5 of 5 entries');?>'
+		}
+	});
 	$(function() {
 		// edit request
 		$('#request_table .btn-edit').on('click',function(e){
@@ -175,8 +195,8 @@
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
-				title:'Confirm!',
-				content:"Would you like continue to deploy system for client "+client_name,
+				title:'<?php echo __('Confirm');?>!',
+				content:"<?php echo __('Would you like continue to deploy system for client');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Create');?>',
@@ -185,8 +205,12 @@
 							location.href='<?php echo Router::url(array("controller"=>"Clients","action"=>"add"))?>/?request_id='+request_id;
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							
+							// close
+						}
 					}
 				}
 			});
@@ -198,8 +222,8 @@
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
 			$.confirm({
-				title:'Confirm!',
-				content:"Would you like continue to remove request to deploy system of client "+client_name,
+				title:'<?php echo __('Confirm');?>!',
+				content:"<?php echo __('Would you like continue to remove request to deploy system of client ');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Delete');?>',
@@ -224,8 +248,11 @@
 							}, 'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action: function(){
+							// close
+						}
 					}
 				}
 			});
@@ -289,8 +316,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text:'<?php echo __('Cancel');?>',
+						action: function(){
+							// close
+						}
 					}
 				}
 			});
@@ -339,8 +369,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text:'<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});

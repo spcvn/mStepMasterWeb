@@ -147,7 +147,7 @@
 
 							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>',{id:request_id, status:'returned',reason:reason.val()},function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'<?php echo __('Alert');?>!',
 									content: res.message,
 									buttons:{
 										ok:{
@@ -166,8 +166,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});
@@ -200,7 +203,7 @@
 
 							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>', {id:request_id, status:'rejected',reason:reason.val()}, function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'<?php echo __('Alert');?>!',
 									content: res.message,
 									buttons:{
 										ok:{
@@ -217,8 +220,11 @@
 							},'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});
@@ -231,18 +237,21 @@
 			var request_id=obj.parent().find(':hidden[name=id]').val();
 			var client_name=obj.parent().find(':hidden[name=client_name]').val();
 			$.confirm({
-				title:'Confirm!',
-				content:"Would you like continue to deploy system for client "+client_name,
+				title:'<?php echo __('Confirm');?>!',
+				content:"<?php echo __('Would you like continue to deploy system for client');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Create');?>',
 						btnClass: 'btn-success',
 						action: function(){
-							location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"add"))?>/'+request_id;
+							location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"add"))?>/?request_id='+request_id;
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});
@@ -255,7 +264,7 @@
 			var client_name=obj.parent().find(':hidden[name=client_name]').val();
 			$.confirm({
 				title:'Confirm!',
-				content:"Would you like continue to remove request to deploy system of client "+client_name,
+				content:"<?php echo __('Would you like continue to remove request to deploy system of client');?>".format(client_name),
 				buttons:{
 					formSubmit:{
 						text: '<?php echo __('Delete');?>',
@@ -263,7 +272,7 @@
 						action: function(){
 							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'delete']);?>', {id:request_id}, function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'<?php echo __('Alert');?>!',
 									content: res.message,
 									buttons:{
 										ok:{
@@ -282,8 +291,11 @@
 							}, 'json');
 						}
 					},
-					cancel: function(){
-						// close
+					cancel: {
+						text: '<?php echo __('Cancel');?>',
+						action:function(){
+							// close
+						}
 					}
 				}
 			});

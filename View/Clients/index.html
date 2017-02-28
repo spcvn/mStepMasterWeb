@@ -3,7 +3,7 @@
         <div class="clearfix">
             <div class="pull-right tableTools-container"></div>
         </div>
-        <div class="table-header">Clients
+        <div class="table-header"><?php echo __('Clients');?>
         </div>
         <div class="dataTable_wrapper">
             <table id="dynamic-table" class="table table-striped table-bordered table-hover">
@@ -123,6 +123,17 @@
         }
         
         $('#dynamic-table').DataTable({
+            language: {
+                paginate:{
+                    first:"<?php echo __('First');?>",
+                    previous:"<?php echo __('Previous');?>",
+                    next:"<?php echo __('Next');?>",
+                    last:"<?php echo __('Last');?>"
+                },
+                'search':"<?php echo __('Search');?>",
+                'lengthMenu':"<?php echo __('Display 10 records');?>",
+                'info':"<?php echo __('Showing 1 to 5 of 5 entries');?>"
+            },
         	"initComplete": function(){
         		checkDB();
         	}
