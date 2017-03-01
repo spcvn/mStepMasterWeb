@@ -88,14 +88,14 @@ class UsersController extends AppController {
 		}
 	}
 	
-	public function randomPassword($pass) {
+	public function hashPassword($pass) {
 	    $password = [];
 	    $password['string'] = $pass;
 	     
 	    $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha1'));
 	    $password['hashed'] = $passwordHasher->hash($password['string']);
 	     
-	    return $password;
+	    v($password);
 	     
 	}
 }
