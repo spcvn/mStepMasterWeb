@@ -12,7 +12,7 @@
  */
 
 App::uses('AuthComponent', 'Controller/Component');
-
+App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 /**
  * Users Controller
  *
@@ -86,5 +86,16 @@ class UsersController extends AppController {
 		if ($this->Auth->logout()) {
 			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
+	}
+	
+	public function randomPassword($pass) {
+	    $password = [];
+	    $password['string'] = $pass;
+	     
+	    $passwordHasher = new SimplePasswordHasher(array('hashType' => 'sha1'));
+	    $password['hashed'] = $passwordHasher->hash($password['string']);
+	     
+	    return $password;
+	     
 	}
 }

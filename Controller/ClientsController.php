@@ -230,16 +230,16 @@ class ClientsController extends AppController {
 	        $old_config_debug = Configure::read('debug');
 	        Configure::write('debug', 0);
             if($conn = mysqli_connect($post['host'], $post['user'], $post['pass'], $post['name'], $post['port'])){
-                $res['status'] = "OK";
+                $res['status'] = __("Ok");
             }else{
-                $res['status'] = "Fail";
+                $res['status'] = __("Fail");
             }
             Output::__output($res);
 	        Configure::write('debug', $old_config_debug);
 	    }
 	}
 	
-	function randomPassword() {
+	private function randomPassword() {
 	    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
 	    $password=[];
 	    $pass = array(); //remember to declare $pass as an array
