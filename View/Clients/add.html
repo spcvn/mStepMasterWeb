@@ -37,7 +37,7 @@
 										<label for="client-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Client Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="client_name" id="client-name" required class="width-100" />
+												<input type="text" name="client_name" id="client-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -46,7 +46,7 @@
 										<label for="address" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Address') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="client_address" id="address" required class="width-100" />
+												<input type="text" name="client_address" id="address" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-map-marker"></i>
 											</span>
 										</div>
@@ -55,7 +55,7 @@
 										<label for="phone" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Phone') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="tel" name="client_tel" id="phone" required class="width-100" />
+												<input type="tel" name="client_tel" id="phone" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-phone"></i>
 											</span>
 										</div>
@@ -64,7 +64,7 @@
 										<label for="email-s" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Email') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="email" name="client_email" id="email-s" required class="width-100" />
+												<input type="email" name="client_email" id="email-s" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-envelope"></i>
 											</span>
 										</div>
@@ -84,7 +84,7 @@
 										<label for="contact-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Contact Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="contact_name" id="contact-name" required class="width-100" />
+												<input type="text" name="contact_name" id="contact-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -102,7 +102,7 @@
 										<label for="email" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Email') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="email" name="contact_email" id="email" required class="width-100" />
+												<input type="email" name="contact_email" id="email" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-envelope"></i>
 											</span>
 										</div>
@@ -148,7 +148,7 @@
 										<label for="domain" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-4">
 											<span class="block input-icon">
-												<input type="text" name="short_name" id="domain" required class="width-100" />
+												<input type="text" name="short_name" id="domain" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-globe"></i>
 											</span>
 										</div>
@@ -158,7 +158,7 @@
 										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_host" id="db-host" required class="width-100" />
+												<input type="text" name="db_host" id="db-host" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
@@ -167,7 +167,7 @@
 										<label for="db-port" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Port') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_port" id="db-port" required class="width-100" />
+												<input type="text" name="db_port" id="db-port" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
@@ -176,7 +176,7 @@
 										<label for="db-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_name" id="db-name" required class="width-100" />
+												<input type="text" name="db_name" id="db-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-database"></i>
 											</span>
 										</div>
@@ -185,7 +185,7 @@
 										<label for="db-user" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB User') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_user" id="db-user" required class="width-100" />
+												<input type="text" name="db_user" id="db-user" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>

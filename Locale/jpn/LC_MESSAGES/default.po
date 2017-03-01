@@ -146,7 +146,7 @@ msgid "Your request has been saved success"
 msgstr "保存完了"
 
 msgid "Status has beed updated success to"
-msgstr "ステータス保存完了"
+msgstr "保存完了"
 
 msgid "Cannot delete this Client request, please try again"
 msgstr "顧客追加依頼を削除できません。もう一度試してください。"
@@ -461,7 +461,7 @@ msgstr "検索"
 msgid "Request list"
 msgstr "依頼リスト"
 
-msgid "New request"
+msgid "New Request"
 msgstr "新規依頼"
 
 msgid "Detail"

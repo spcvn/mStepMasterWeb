@@ -49,7 +49,8 @@ class UsersController extends AppController {
 		$this->layout='login';
 		//if already logged-in, redirect
 		if ($this->Session->check('Auth.User')) {
-			$this->redirect($this->Auth->redirectUrl());
+			$this->redirect(ROOT_DOMAIN.'/clients/index');
+//			$this->redirect($this->Auth->redirectUrl());
 		}
 
 		// if we get the post information, try to authenticate
@@ -72,7 +73,8 @@ class UsersController extends AppController {
 				
 				file_put_contents(LOGS . 'logged.log', 'Last logged: '.date('D M dS Y H:i:s')." from ".$ip_address);
 				// allow access
-				$this->redirect($this->Auth->redirectUrl());
+				$this->redirect(ROOT_DOMAIN.'/clients/index');
+//				$this->redirect($this->Auth->redirectUrl());
 			} else {
 				$this->Session->setFlash(__('Login ID or password is wrong.'));
 			}
@@ -84,7 +86,8 @@ class UsersController extends AppController {
 
 	public function logout() {
 		if ($this->Auth->logout()) {
-			$this->redirect(array('controller' => 'users', 'action' => 'login'));
+			$this->redirect(ROOT_DOMAIN.'/users/login');
+//			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}
 	}
 	

@@ -31,24 +31,24 @@
                         <td class="hidden-480" data-type="check-db-status" data-db='{"host":"<?=$client['Clients'][0]['db_host']?>","user":"<?=$client['Clients'][0]['db_user']?>","name":"<?=$client['Clients'][0]['db_name']?>","pass":"<?=$client['Clients'][0]['db_password']?>","port":"<?=$client['Clients'][0]['db_port']?>"}'><?= __('Checking...') ?></td>
                         <td class="actions">
                             <div class="hidden-sm hidden-xs action-buttons button-list">
+                                <button class="btn-redirect btn btn-info btn-xs" data-href="/clients/detail/<?=$client['ClientProfile']['id']?>">
+                                    <i class="ace-icon fa fa-eye bigger-130"></i>
+                                </button>
+                                <?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add']))) :?>
+                                    <button class="btn-redirect btn btn-success btn-xs" data-href="/clients/add/<?=$client['ClientProfile']['id']?>">
+                                        <i class="ace-icon fa fa-edit bigger-130"></i>
+                                    </button>
+                                <?php endif;?>
                                 <?php if(($allows=='all' or (isset($allows['Clients']['updateStatus']) and $allows['Clients']['updateStatus']))) :?>
                                 <button class="btn btn-success btn-xs" onclick="return false;" data-type="btn-active" <?=($client['Clients'][0]['del_flg']==0)?"style='display:none'":""?>>
                                     <i class="ace-icon fa fa-check bigger-130"></i>
                                 </button>
                                 <?php endif;?>
                                 <?php if(($allows=='all' or (isset($allows['Clients']['updateStatus']) and $allows['Clients']['updateStatus']))) :?>
-                                <button class="btn btn-warning btn-xs" onclick="return false;" data-type="btn-deactive" <?=($client['Clients'][0]['del_flg']==1)?"style='display:none'":""?>>
-                                    <i class="ace-icon fa fa-ban bigger-130"></i>
+                                <button class="btn btn-danger btn-xs" onclick="return false;" data-type="btn-deactive" <?=($client['Clients'][0]['del_flg']==1)?"style='display:none'":""?>>
+                                    <i class="ace-icon fa fa-remove bigger-130"></i>
                                 </button>
                                 <?php endif;?>
-                                <?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add']))) :?>
-                                <button class="btn-redirect btn btn-success btn-xs" data-href="/clients/add/<?=$client['ClientProfile']['id']?>">
-                                    <i class="ace-icon fa fa-edit bigger-130"></i>
-                                </button>
-                                <?php endif;?>
-                                <button class="btn-redirect btn btn-info btn-xs" data-href="/clients/detail/<?=$client['ClientProfile']['id']?>">
-                                    <i class="ace-icon fa fa-eye bigger-130"></i>
-                                </button>
                             </div>
 
                             <div class="hidden-md hidden-lg button-list">
@@ -162,7 +162,7 @@
             var client_status=client_list_tr.children("td[data-type=\"client-status\"]");
 
             $.confirm({
-                title: '<?php echo __('Alert');?>',
+                title: '',
                 content:'<?php echo __('Do you want to active client');?> ' +client_name,
                 buttons:{
                     yes:{
@@ -178,7 +178,7 @@
                                     target.css("display","none");
                                     client_deactive_btn.css("display","inline-block");
                                     $.confirm({
-                                        title: "<?php echo __('Alert');?>",
+                                        title: "",
                                         content: '<?php echo __('Success');?>',
                                         buttons: {
                                             yes: {
@@ -192,7 +192,7 @@
                                     });
                                 }else{
                                     $.confirm({
-                                        title: "<?php echo __('Alert');?>",
+                                        title: "",
                                         content: '<?php echo __('Fail');?>',
                                         buttons: {
                                             yes: {
@@ -226,7 +226,7 @@
             var client_status=client_list_tr.children("td[data-type=\"client-status\"]");
             
             $.confirm({
-				title:"<?php echo __('Alert');?>",
+				title:"",
                 content:"<?php echo __('Do you want to deactive client');?> "+client_name,
                 buttons:{
 				    yes:{
@@ -242,7 +242,7 @@
                                     target.css("display","none");
                                     client_active_btn.css("display","inline-block");
                                     $.confirm({
-                                        title: "<?php echo __('Alert');?>",
+                                        title: "",
                                         content: '<?php echo __('Success');?>',
                                         buttons:{
                                             yes: {
@@ -256,7 +256,7 @@
                                     });
                                 }else{
                                     $.confirm({
-                                        title: "<?php echo __('Alert');?>",
+                                        title: "",
                                         content: '<?php echo __('Fail');?>',
                                         buttons:{
                                             yes:{

@@ -65,7 +65,7 @@
 								<i class="fa ace-icon fa-times bigger-130 icon-only"></i>
 							</button>
 							<?php endif;?>
-							<?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add'])) and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+							<?php if(($allows=='all' or (isset($allows['Clients']['add']) and $allows['Clients']['add']) and $auth['authority']!='mstep') and !in_array($row['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
 							<button class="btn-create btn btn-success btn-xs" title="<?php echo __('Create');?>">
 								<i class="fa ace-icon fa-share bigger-130 icon-only"></i>
 							</button>
@@ -231,7 +231,7 @@
 						action: function(){
 							$.post('<?php echo Router::url(['controller'=>'client_request','action'=>'delete']);?>', {id:request_id}, function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'',
 									content: res.message,
 									buttons:{
 										ok:{
@@ -299,7 +299,7 @@
 
 							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>',{id:request_id, status:'returned',reason:reason.val()},function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'',
 									content: res.message,
 									buttons:{
 										ok:{
@@ -352,7 +352,7 @@
 
 							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>', {id:request_id, status:'rejected',reason:reason.val()}, function(res){
 								$.confirm({
-									title:'Alert!',
+									title:'',
 									content: res.message,
 									buttons:{
 										ok:{
