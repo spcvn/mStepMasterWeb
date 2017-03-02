@@ -65,9 +65,25 @@ class UsersController extends AppController {
 					}
 					if(!in_array($ip_address, $allow_address)){
 //						throw new ForbiddenException("You don't have permission to access from ip address: ".$ip_address);
-						$this->Session->setFlash(__("You don't have permission to access from ip address: ",true).$ip_address);
-						$this->logout();
-						die;
+                        // Change permission
+						//$this->Session->setFlash(__("You don't have permission to access from ip address: ",true).$ip_address);
+						//$this->logout();
+						//die;
+						
+					    if($this->Auth->user('authority') == "mstep"){
+					        $this->Session->write("out_of_ip", true);
+					        $allows=array(
+                    			'mstep'=>array(
+                    				'ClientRequest'=>array(
+                    					'add'=>true,
+                    					'save_process'=>true,
+                    				)
+                    			)
+                    		);
+					        $this->Session->write("allow_permission", $allows);
+					        
+					        $this->redirect(ROOT_DOMAIN.'/client_request/add');
+					    }
 					}
 				}
 				
@@ -86,6 +102,7 @@ class UsersController extends AppController {
 
 	public function logout() {
 		if ($this->Auth->logout()) {
+		    $this->Session->destroy();
 			$this->redirect(ROOT_DOMAIN.'/users/login');
 //			$this->redirect(array('controller' => 'users', 'action' => 'login'));
 		}

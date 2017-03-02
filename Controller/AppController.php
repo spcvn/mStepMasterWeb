@@ -155,11 +155,20 @@ class AppController extends Controller {
 	 */
 	public function isAuthorized($user) {
 
+		// check out of ip
+		if($this->Session->read('out_of_ip')){
+		    $allows = $this->Session->read('allow_permission');
+		    if(isset($allows[$user['authority']][$this->name][$this->action])
+				and $allows[$user['authority']][$this->name][$this->action]){
+		        return true;
+		    }
+		}else{
 		// Admin can access every action
-		if (isset($user['authority']) && $user['authority'] === 'master' or
-			(isset($this->allows[$user['authority']][$this->name][$this->action])
-				and $this->allows[$user['authority']][$this->name][$this->action])) {
-			return true;
+    		if (isset($user['authority']) && $user['authority'] === 'master' or
+    			(isset($this->allows[$user['authority']][$this->name][$this->action])
+    				and $this->allows[$user['authority']][$this->name][$this->action])) {
+    			return true;
+    		}
 		}
 		
 		// Default deny
