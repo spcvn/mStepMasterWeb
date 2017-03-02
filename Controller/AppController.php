@@ -188,6 +188,7 @@ class AppController extends Controller {
 		$this->set('page_title',(!empty($this->page_title)?$this->page_title:$this->name));
 		$this->set('page_desc',$this->page_desc);
 		$this->set('auth', $this->Auth->user());
+		$this->set('is_out_ip',($this->Session->read('out_of_ip')?$this->Session->read('out_of_ip'):false));
 	}
 
 	function __arrangeAry($data = array(), $key) {
