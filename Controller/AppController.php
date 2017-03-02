@@ -121,7 +121,7 @@ class AppController extends Controller {
 					'index'=>true,
 					'detail'=>true,
 					'checkConnectDB'=>true,
-			        'add'=>true
+			        'add'=>(!$is_mobile?true:false)
 				),
 				'ClientRequest'=>array(
 					'index'=>true,
