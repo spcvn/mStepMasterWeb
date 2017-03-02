@@ -24,7 +24,7 @@
 
 			<b class="arrow"></b>
 			<ul class="submenu">
-				<?php if($allows=='all' or (isset($allows['Clients']['index']) and $allows['Clients']['index'])) :?>
+				<?php if($allows=='all' or (isset($allows['Clients']['index']) and $allows['Clients']['index']) and ((isset($is_out_ip) and !$is_out_ip) or !isset($is_out_ip))) :?>
 				<li class="<?php echo (($current_page=='clientsindex')?'active':'');?>">
 					<a href="/clients/index">
 						<i class="menu-icon fa fa-caret-right"></i>
@@ -45,7 +45,7 @@
 					<b class="arrow"></b>
 				</li>
 				<?php endif;?> -->
-				<?php if($allows=='all' or (isset($allows['ClientRequest']['index']) and $allows['ClientRequest']['index'])) :?>
+				<?php if($allows=='all' or (isset($allows['ClientRequest']['index']) and $allows['ClientRequest']['index']) and ((isset($is_out_ip) and !$is_out_ip) or !isset($is_out_ip))) :?>
 				<li class="<?php echo (($current_page=='client_requestindex')?'active':'');?>">
 					<a href="/client_request">
 						<i class="menu-icon fa fa-caret-right"></i>
