@@ -36,6 +36,12 @@ class ClientRequestController extends AppController {
 	}
 	
 	public function add(){
+		
+		$is_out_ip = false;
+		if($this->Session->read('out_of_ip')){
+		    $is_out_ip = true;
+		}
+		$this->set(compact('is_out_ip'));
 		$this->render('edit');
 	}
 	

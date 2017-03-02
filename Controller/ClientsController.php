@@ -85,7 +85,7 @@ class ClientsController extends AppController {
 	    $is_request = false;
 	    
 	    if(isset($this->request->query['request_id'])){
-	        if(!in_array($this->Auth->user("authority"), ["master", "spc"])){
+	        if(!in_array($this->Auth->user("authority"), ["master", "mstep"])){
 	            throw new unAuthorizedException();
 	        }
 	        $request_id=$this->request->query['request_id'];

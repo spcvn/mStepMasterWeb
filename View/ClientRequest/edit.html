@@ -92,6 +92,7 @@
 <?php echo $this->Html->script('/assets/js/jquery.validate_pattern.js',['block'=>'script_library']);?>
 <?php $this->start('second_script');?>
 <script type="text/javascript">
+	var is_out_ip = <?php echo json_encode($is_out_ip); ?>;
 	$(function () {
 		$(':checkbox.cp_chk').each(function () {
 			var obj = $(this);
@@ -149,7 +150,11 @@
 								btnClass: 'btn-danger',
 								action: function (e) {
 									if(res.status=="YES"){
-										location.href='<?php echo Router::url(['controller'=>'ClientRequest','action'=>'index']);?>';
+										if(is_out_ip){
+											location.href='<?php echo Router::url(['controller'=>'ClientRequest','action'=>'add']);?>';
+										}else{
+											location.href='<?php echo Router::url(['controller'=>'ClientRequest','action'=>'index']);?>';
+										}
 									} else {}
 								}
 							}
