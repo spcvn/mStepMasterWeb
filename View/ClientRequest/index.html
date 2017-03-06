@@ -202,7 +202,7 @@
 						text: '<?php echo __('Create');?>',
 						btnClass: 'btn-success',
 						action: function(){
-							location.href='<?php echo Router::url(array("controller"=>"Clients","action"=>"add"))?>/?request_id='+request_id;
+							location.href='/clients/add/?request_id='+request_id;
 						}
 					},
 					cancel: {
@@ -229,7 +229,7 @@
 						text: '<?php echo __('Delete');?>',
 						btnClass: 'btn-danger',
 						action: function(){
-							$.post('<?php echo Router::url(['controller'=>'client_request','action'=>'delete']);?>', {id:request_id}, function(res){
+							$.post('/client_request/delete', {id:request_id}, function(res){
 								$.confirm({
 									title:'',
 									content: res.message,
@@ -262,14 +262,14 @@
 		$('#request_table .btn-detail').on('click',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
-			location.href='<?php echo Router::url(array("controller"=>"ClientRequest","action"=>"detail"))?>/'+request_id;
+			location.href='/client_request/detail/'+request_id;
 		});
 
 		// create view client detail
 		$('#request_table .btn-client-detail').on('click',function(e){
 			var obj=$(this);
 			var client_id=find_client_id.call(obj);
-			location.href='<?php echo Router::url(array("controller"=>"clients","action"=>"detail"))?>/'+client_id;
+			location.href='/clients/detail/'+client_id;
 		});
 
 		// return button
@@ -297,7 +297,7 @@
 								return false;
 							}
 
-							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>',{id:request_id, status:'returned',reason:reason.val()},function(res){
+							$.post('/client_request/update_status/',{id:request_id, status:'returned',reason:reason.val()},function(res){
 								$.confirm({
 									title:'',
 									content: res.message,
@@ -350,7 +350,7 @@
 								return false;
 							}
 
-							$.post('<?php echo Router::url(['controller'=>'ClientRequest','action'=>'update_status']);?>', {id:request_id, status:'rejected',reason:reason.val()}, function(res){
+							$.post('client_request/update_status/', {id:request_id, status:'rejected',reason:reason.val()}, function(res){
 								$.confirm({
 									title:'',
 									content: res.message,
