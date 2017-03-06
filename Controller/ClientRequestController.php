@@ -112,6 +112,7 @@ class ClientRequestController extends AppController {
 		// save success
 		$res['message']=__('Your request has been saved success',true);
 		Output::__outputYes($res);
+		return false;
 	}
 	
 	/**
