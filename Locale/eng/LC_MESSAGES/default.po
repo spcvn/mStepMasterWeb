@@ -448,3 +448,6 @@ msgstr "Next"
 
 msgid "DB connect fail!"
 msgstr "DB connect fail!"
+
+msgid "Please input a different (non-default) value"
+msgstr "Please input a different (non-default) value"

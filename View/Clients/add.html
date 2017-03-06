@@ -448,8 +448,8 @@
 	});
 	
 	$.validator.addMethod("notEqual", function(value, element, param) {
-		  return param.indexOf(value);
-		}, "Please specify a different (non-default) value");
+		  return (param.indexOf(value)<0);
+		}, "<?php echo __('Please input a different (non-default) value');?>");
 	
 	$('#client-form').validate({
 		rules: {
@@ -475,7 +475,29 @@
 				pattern: /^[0-9\.\+\- ]+$/,
 			},
 		},
-		
+		messages:{
+			short_name:{
+				notEqual: "<?php echo __('Please input a different (non-default) value');?>",
+			},
+			client_email:{	
+				pattern: "<?php echo __('Email format invalid');?>",
+			},
+			contact_email:{
+				pattern: "<?php echo __('Email format invalid');?>",
+			},
+			client_tel:{
+				pattern: "<?php echo __('Phone format invalid');?>",
+			},
+			client_fax:{
+				pattern: "<?php echo __('Fax format invalid');?>",
+			},
+			contact_mobile:{
+				pattern: "<?php echo __('Mobile format invalid');?>",
+			},
+			contact_tel:{
+				pattern: "<?php echo __('Phone format invalid');?>",
+			},
+		},
 		errorElement: 'div',
 		errorClass: 'help-block',
 		focusInvalid: false,

@@ -478,3 +478,6 @@ msgstr "_MENU_レコード　表示"
 
 msgid "Showing 1 to 5 of 5 entries"
 msgstr "_TOTAL_件のうち_START_~_END_を表示"
+
+msgid "Please input a different (non-default) value"
+msgstr "異なる価値（無初期設定）を入力してください"
