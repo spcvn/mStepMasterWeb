@@ -451,3 +451,18 @@ msgstr "DB connect fail!"
 
 msgid "Please input a different (non-default) value"
 msgstr "Please input a different (non-default) value"
+
+msgid "SQL is wrong"
+msgstr "SQL is wrong"
+
+msgid "SQL is applied"
+msgstr "SQL is applied"
+
+msgid "Apply"
+msgstr "Apply"
+
+msgid "SQL query"
+msgstr "SQL query"
+
+msgid "DatabaseUpdate"
+msgstr "Database Update"

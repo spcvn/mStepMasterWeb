@@ -34,16 +34,6 @@ class ClientsController extends AppController {
 	    $order[] = "ClientProfile.created_date DESC";
 	    $clients = $this->ClientProfile->findAll(null, null, $order);
 	    
-	    $old_config_debug = Configure::read('debug');
-	    Configure::write('debug', 0);
-// 	    foreach($clients as &$client){
-//             if($conn = mysqli_connect($client['Clients'][0]['db_host'], $client['Clients'][0]['db_user'], $client['Clients'][0]['db_password'], $client['Clients'][0]['db_name'])){
-//                 $client['Clients'][0]['db_status'] = "OK";
-//             }else{
-//                 $client['Clients'][0]['db_status'] = "Fail";
-//             }
-// 	    }
-	    Configure::write('debug', $old_config_debug);
 	    $this->set(compact('clients'));
 	}
 	

@@ -1,0 +1,70 @@
+<div class="row">
+	<form name="frm_request" class="form-horizontal" role="form" action="/databaseupdate/applySQL" method="post" novalidate>
+		<div class="col col-xs-12">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="txt_client_name"><?php echo __('SQL query');?><span class="required">※</span> </label>
+				<div class="col-sm-7">
+					<textarea rows="10" name="sql_query" id="sql_query" class="form-control" placeholder="<?php echo __('SQL query')?>" required data-msg="<?php echo __('This field is required.');?>"></textarea>
+				</div>
+			</div>
+		</div>
+		<div class="col col-xs-12">
+			<div class="clearfix form-actions">
+				<div class="col-md-offset-3 col-md-9 text-right">
+					<button type="reset" class="btn" name="btn_cancel"><?php echo __('Cancel');?></button>
+					<button type="submit" class="btn btn-info" id="btn_submit"><?php echo __('Apply');?></button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<?php echo $this->Html->script('/assets/js/jquery.validate_pattern.js',['block'=>'script_library']);?>
+<?php $this->start('second_script');?>
+<script type="text/javascript">
+	$(function () {
+		
+		var addErrorClass=function(){
+			return $(this).addClass('has-error');
+		}
+		var removeErrorClass=function(){
+			return $(this).removeClass('has-error');
+		}
+
+		$('form[name="frm_request"]').validate({
+			errorClass:'help-block',
+			errorPlacement: function(err, ele){
+				addErrorClass.call(ele.parents('.form-group').first());
+				err.insertAfter(ele);
+			},
+			highlight:function(ele){
+				addErrorClass.call($(ele).parents('.form-group').first());
+			},
+			success:function(label, ele){
+				removeErrorClass.call($(ele).parents('.form-group').first());
+			},
+			submitHandler: function(form){
+				$.post($(form).attr('action'), $(form).serialize(), function(res){
+					$.confirm({
+						title: '',
+						content: res.message,
+						buttons: {
+							ok: {
+								btnClass: 'btn-danger',
+								action: function (e) {
+									if(res.status=="YES"){
+										location.href='<?php echo Router::url(['controller'=>'DatabaseUpdate','action'=>'index']);?>';
+									} else {}
+								}
+							}
+						}
+					});
+				},'json');
+			}
+		});
+
+		$('form[name=frm_request] button[name=btn_cancel]').on('click',function () {
+			location.reload();
+		});
+	});
+</script>
+<?php $this->end();?>

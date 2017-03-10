@@ -114,7 +114,11 @@ class AppController extends Controller {
 					'index'=>(!$is_mobile?true:false),
 					'update_status'=>(!$is_mobile?true:false),
 					'detail'=>true,
-				)
+				),
+		        'DatabaseUpdate'=>array(
+	                'index'=>(!$is_mobile?true:false),
+	                'applySQL'=>(!$is_mobile?true:false),
+		        )
 			),
 			'mstep'=>array(
 				'Clients'=>array(
