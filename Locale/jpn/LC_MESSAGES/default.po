@@ -481,3 +481,33 @@ msgstr "_TOTAL_件のうち_START_~_END_を表示"
 
 msgid "Please input a different (non-default) value"
 msgstr "異なる価値（無初期設定）を入力してください"
+
+msgid "SQL is wrong"
+msgstr "SQLが正しくないです。"
+
+msgid "SQL is applied"
+msgstr "SQLが使われました。"
+
+msgid "Apply"
+msgstr "使われる。"
+
+msgid "SQL query"
+msgstr "SQLクエリ"
+
+msgid "DatabaseUpdate"
+msgstr "データーベース更新"
+
+msgid "File SQL"
+msgstr "SQLファイル"
+
+msgid "Please choose a SQL file"
+msgstr "SQLファイルを選択してください"
+
+msgid "DatabaseStructure"
+msgstr "データーベース構成"
+
+msgid "Fail to upload file"
+msgstr "ファイルアップロードが失敗しました"
+
+msgid "Database structure is updated"
+msgstr "データーベース構成が更新できました"

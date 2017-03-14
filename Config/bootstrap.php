@@ -109,6 +109,13 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+// 2017.03.13 Hung Nguyen start
+CakeLog::config('sql', array(
+        'engine' => 'File',
+        'types' => array('sql'),
+        'file' => 'sql',
+));
+// 2017.03.13 Hung Nguyen end
 
 #■ファイルアップロード
 CakePlugin::load('Upload');

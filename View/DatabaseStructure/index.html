@@ -1,0 +1,92 @@
+<div class="row">
+	<form name="frm_request" class="form-horizontal" role="form" action="/databasestructure/updateStruct" method="post" novalidate>
+		<div class="col col-xs-12">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="txt_client_name"><?php echo __('File SQL');?><span class="required">※</span> </label>
+				<div class="col-sm-5">
+					<input type="file" name="data_struct" id="data_struct" class="form-control" placeholder="<?php echo __('File SQL')?>" required data-msg="<?php echo __('This field is required.');?>" />
+				</div>
+			</div>
+		</div>
+		<div class="col col-xs-12">
+			<div class="clearfix form-actions">
+				<div class="col-md-offset-3 col-md-9 text-right">
+					<button type="reset" class="btn" name="btn_cancel"><?php echo __('Cancel');?></button>
+					<button type="submit" class="btn btn-info" id="btn_submit"><?php echo __('Apply');?></button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<?php echo $this->Html->script('/assets/js/jquery.validate_pattern.js',['block'=>'script_library']);?>
+<?php $this->start('second_script');?>
+<script type="text/javascript">
+	$(function () {
+		
+		var addErrorClass=function(){
+			return $(this).addClass('has-error');
+		}
+		var removeErrorClass=function(){
+			return $(this).removeClass('has-error');
+		}
+
+		$('form[name="frm_request"]').validate({
+			rules: {
+				data_struct:{
+					extension: "sql",
+				},
+			},
+			messages:{
+				data_struct:{
+					extension: "<?php echo __('Please choose a SQL file');?>",
+				},
+			},
+			errorClass:'help-block',
+			errorPlacement: function(err, ele){
+				addErrorClass.call(ele.parents('.form-group').first());
+				err.insertAfter(ele);
+			},
+			highlight:function(ele){
+				addErrorClass.call($(ele).parents('.form-group').first());
+			},
+			success:function(label, ele){
+				removeErrorClass.call($(ele).parents('.form-group').first());
+			},
+			submitHandler: function(form){
+				var file_data = $('#data_struct').prop('files')[0];   
+			    var form_data = new FormData();                  
+			    form_data.append('file', file_data);
+			    $.ajax({
+	                url: $(form).attr('action'),
+	                dataType: 'json',
+	                cache: false,
+	                contentType: false,
+	                processData: false,
+	                data: form_data,
+	                type: 'post',
+	                success: function(res){
+	                	$.confirm({
+							title: '',
+							content: res.message,
+							buttons: {
+								ok: {
+									btnClass: 'btn-danger',
+									action: function (e) {
+										if(res.status=="YES"){
+											location.href='<?php echo Router::url(['controller'=>'DatabaseStructure','action'=>'index']);?>';
+										} else {}
+									}
+								}
+							}
+						});
+	                }
+	     		});
+			}
+		});
+
+		$('form[name=frm_request] button[name=btn_cancel]').on('click',function () {
+			location.reload();
+		});
+	});
+</script>
+<?php $this->end();?>
