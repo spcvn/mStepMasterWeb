@@ -40,14 +40,25 @@ class DatabaseUpdateController extends AppController {
     	        
     	        $clients = $this->Clients->findAll(array("del_flg" => 0));
     	        foreach ($clients as $client) {
-    	            if($conn = mysqli_connect($client['Clients']['db_host'], $client['Clients']['db_user'], $client['Clients']['db_password'], $client['Clients']['db_name'], $client['Clients']['db_port'])){
-        	            mysqli_multi_query($conn, $sql);
-        	            mysqli_close($conn);
+    	            if($conn = @mysqli_connect($client['Clients']['db_host'], $client['Clients']['db_user'], $client['Clients']['db_password'], $client['Clients']['db_name'], $client['Clients']['db_port'])){
+        	            @mysqli_multi_query($conn, $sql);
+        	            @mysqli_close($conn);
     	            }
-    	            ini_set('max_execution_time', ini_get("max_execution_time") + 10);
+    	            @ini_set('max_execution_time', @ini_get("max_execution_time") + 10);
     	        }
     	        
     	        Configure::write('debug', $old_config_debug);
+    	        
+    	        // write log
+    	        $str_log = "\n";
+    	        $str_log .= "Author: ".$this->Auth->user('first_name').$this->Auth->user('last_name');
+    	        $str_log .= "\n";
+    	        $str_log .= "Update type: alter table query";
+    	        $str_log .= "\n";
+    	        $str_log .= "SQL statement: ".$sql;
+    	        $str_log .= "\n";
+    	        CakeLog::write('sql', $str_log);
+    	        // End write log
     	        
     	        $res['status'] = "YES";
     	        $res['message'] = __("SQL is applied");
