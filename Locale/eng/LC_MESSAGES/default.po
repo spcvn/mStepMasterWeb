@@ -466,3 +466,18 @@ msgstr "SQL query"
 
 msgid "DatabaseUpdate"
 msgstr "Database Update"
+
+msgid "File SQL"
+msgstr "File SQL"
+
+msgid "Please choose a SQL file"
+msgstr "Please choose a SQL file"
+
+msgid "DatabaseStructure"
+msgstr "DatabaseStructure"
+
+msgid "Fail to upload file"
+msgstr "Fail to upload file"
+
+msgid "Database structure is updated"
+msgstr "Database structure is updated"

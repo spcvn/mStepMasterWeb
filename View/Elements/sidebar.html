@@ -75,6 +75,16 @@
 					<b class="arrow"></b>
 				</li>
 				<?php endif;?>
+				<?php if($allows=='all' or (isset($allows['DatabaseStructure']['index']) and $allows['DatabaseStructure']['index'])) :?>
+				<li class="<?php echo (($current_page=='databasestructureindex')?'active':'');?>">
+					<a href="/databasestructure">
+						<i class="menu-icon fa fa-caret-right"></i>
+						<?php echo __('DatabaseStructure');?>
+					</a>
+
+					<b class="arrow"></b>
+				</li>
+				<?php endif;?>
 			</ul>
 		</li>
 		<?php endif;?>

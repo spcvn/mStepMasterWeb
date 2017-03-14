@@ -496,3 +496,18 @@ msgstr "SQLクエリ"
 
 msgid "DatabaseUpdate"
 msgstr "データーベース更新"
+
+msgid "File SQL"
+msgstr "SQLファイル"
+
+msgid "Please choose a SQL file"
+msgstr "SQLファイルを選択してください"
+
+msgid "DatabaseStructure"
+msgstr "データーベース構成"
+
+msgid "Fail to upload file"
+msgstr "ファイルアップロードが失敗しました"
+
+msgid "Database structure is updated"
+msgstr "データーベース構成が更新できました"

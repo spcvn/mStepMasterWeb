@@ -118,6 +118,10 @@ class AppController extends Controller {
 		        'DatabaseUpdate'=>array(
 	                'index'=>(!$is_mobile?true:false),
 	                'applySQL'=>(!$is_mobile?true:false),
+		        ),
+		        'DatabaseStructure'=>array(
+		                'index'=>(!$is_mobile?true:false),
+		                'updateStruct'=>(!$is_mobile?true:false),
 		        )
 			),
 			'mstep'=>array(
