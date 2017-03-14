@@ -67,7 +67,7 @@
 				<?php endif;?>
 				<?php if($allows=='all' or (isset($allows['DatabaseUpdate']['index']) and $allows['DatabaseUpdate']['index'])) :?>
 				<li class="<?php echo (($current_page=='databaseupdateindex')?'active':'');?>">
-					<a href="/databaseupdate">
+					<a href="<?php echo Router::url(array( 'controller' => 'DatabaseUpdate','action' => 'index'), true)?>">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('DatabaseUpdate');?>
 					</a>
@@ -77,7 +77,7 @@
 				<?php endif;?>
 				<?php if($allows=='all' or (isset($allows['DatabaseStructure']['index']) and $allows['DatabaseStructure']['index'])) :?>
 				<li class="<?php echo (($current_page=='databasestructureindex')?'active':'');?>">
-					<a href="/databasestructure">
+					<a href="<?php echo Router::url(array( 'controller' => 'DatabaseStructure','action' => 'index'), true)?>">
 						<i class="menu-icon fa fa-caret-right"></i>
 						<?php echo __('DatabaseStructure');?>
 					</a>
