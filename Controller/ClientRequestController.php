@@ -24,10 +24,10 @@ class ClientRequestController extends AppController {
 	
 	public function index(){
 		$this->paginate=[
-			'limit'=>10,
 			'conditions'=>[
 				'TblMstepClientRequest.del_flg'=>0
-			]
+			],
+			'order'=>'TblMstepClientRequest.id DESC'
 		];
 		
 		$request=$this->paginate('TblMstepClientRequest');

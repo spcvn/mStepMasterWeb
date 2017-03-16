@@ -481,3 +481,6 @@ msgstr "Fail to upload file"
 
 msgid "Database structure is updated"
 msgstr "Database structure is updated"
+
+msgid "Login ID or password is wrong."
+msgstr "Login ID or password is wrong."

@@ -161,36 +161,37 @@
 	var find_client_id=function(){
 		return $(this).parents('td').first().find(':hidden[name="client_id"]').val();
 	}
-	$('#request_table').DataTable({
-		language:{
-			paginate:{
-				first:"<?php echo __('First');?>",
-				previous:"<?php echo __('Previous');?>",
-				next:"<?php echo __('Next');?>",
-				last:"<?php echo __('Last');?>"
-			},
-			aria:{
+	
+	$(function() {
+		$('#request_table').DataTable({
+			language:{
 				paginate:{
 					first:"<?php echo __('First');?>",
 					previous:"<?php echo __('Previous');?>",
 					next:"<?php echo __('Next');?>",
 					last:"<?php echo __('Last');?>"
-				}
-			},
-			'search':'<?php echo __('Search');?>',
-			'lengthMenu':'<?php echo __('Display 10 records');?>',
-			'info':'<?php echo __('Showing 1 to 5 of 5 entries');?>'
-		}
-	});
-	$(function() {
+				},
+				aria:{
+					paginate:{
+						first:"<?php echo __('First');?>",
+						previous:"<?php echo __('Previous');?>",
+						next:"<?php echo __('Next');?>",
+						last:"<?php echo __('Last');?>"
+					}
+				},
+				'search':'<?php echo __('Search');?>',
+				'lengthMenu':'<?php echo __('Display 10 records');?>',
+				'info':'<?php echo __('Showing 1 to 5 of 5 entries');?>'
+			}
+		});
 		// edit request
-		$('#request_table .btn-edit').on('click',function(e){
+		$(document).on('click','#request_table .btn-edit',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			location.href='<?php echo Router::url(array("controller"=>"client_request","action"=>"edit"))?>/'+request_id;
 		});
 		// create client
-		$('#request_table .btn-create').on('click',function(e){
+		$(document).on('click','#request_table .btn-create',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
@@ -217,7 +218,7 @@
 		});
 
 		// create client
-		$('#request_table .btn-delete').on('click',function(e){
+		$(document).on('click','#request_table .btn-delete',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			var client_name=obj.parents('tr').first().find('td:first').next().next().next().text();
@@ -259,21 +260,21 @@
 		});
 
 		// create view detail
-		$('#request_table .btn-detail').on('click',function(e){
+		$(document).on('click','#request_table .btn-detail',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			location.href='/client_request/detail/'+request_id;
 		});
 
 		// create view client detail
-		$('#request_table .btn-client-detail').on('click',function(e){
+		$(document).on('click','#request_table .btn-client-detail',function(e){
 			var obj=$(this);
 			var client_id=find_client_id.call(obj);
 			location.href='/clients/detail/'+client_id;
 		});
 
 		// return button
-		$('#request_table .btn-return').on('click',function(e){
+		$(document).on('click','#request_table .btn-return',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			$.confirm({
@@ -326,7 +327,7 @@
 			});
 		});
 		// reject button
-		$('#request_table .btn-reject').on('click',function(e){
+		$(document).on('click','#request_table .btn-reject',function(e){
 			var obj=$(this);
 			var request_id=find_request_id.call(obj);
 			$.confirm({

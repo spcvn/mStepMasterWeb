@@ -511,3 +511,6 @@ msgstr "ファイルアップロードが失敗しました"
 
 msgid "Database structure is updated"
 msgstr "データーベース構成が更新できました"
+
+msgid "Login ID or password is wrong."
+msgstr "ログインIDまたはパスワードが正しくないです。"
