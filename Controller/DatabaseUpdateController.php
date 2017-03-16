@@ -27,14 +27,14 @@ class DatabaseUpdateController extends AppController {
 	    if($this->request->is("post")){
 	        $sql = $_POST['sql_query'];
 	        
-	        require_once 'SQL/Parser.php';
-	        $parser = new SQL_Parser();
-	        $struct = $parser->parse($sql);
-	        if(!is_array($struct)){
-	            $res['status'] = "NO";
-	            $res['message'] = __("SQL is wrong");
-	            Output::__output($res);
-	        }else{
+// 	        require_once 'SQL/Parser.php';
+// 	        $parser = new SQL_Parser();
+// 	        $struct = $parser->parse($sql);
+// 	        if(!is_array($struct)){
+// 	            $res['status'] = "NO";
+// 	            $res['message'] = __("SQL is wrong");
+// 	            Output::__output($res);
+// 	        }else{
     	        $old_config_debug = Configure::read('debug');
     	        Configure::write('debug', 0);
     	        
@@ -63,7 +63,7 @@ class DatabaseUpdateController extends AppController {
     	        $res['status'] = "YES";
     	        $res['message'] = __("SQL is applied");
     	        Output::__output($res);
-	        }
+	        //}
 	    }
 	}
 }
