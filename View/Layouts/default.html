@@ -37,15 +37,7 @@
 
 		<!-- ace settings handler -->
 		<script src="/assets/js/ace-extra.min.js"></script>
-		<script src="/assets/js/jquery.validate.min.js"></script>
-		<script src="/assets/js/jquery-additional-methods.min.js"></script>
-
-		<!-- fetch library from view -->
-		<?php echo $this->fetch('script_library');?>
-
-		<!-- uiAlert -->
-		<script src="/assets/js/spc_functions.js"></script>
-		<script src="/assets/js/jquery-confirm.js"></script>
+		
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -96,18 +88,23 @@
 
 		<!-- basic scripts -->
 		<!--[if !IE]> -->
-		<script src="assets/js/jquery-2.1.4.min.js"></script>
+		<script src="/assets/js/jquery-2.1.4.min.js"></script>
 		
 		<!-- <![endif]-->
 		
 		<!--[if IE]>
-		<script src="assets/js/jquery-1.11.3.min.js"></script>
+		<script src="/assets/js/jquery-1.11.3.min.js"></script>
 		<![endif]-->
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="assets/js/bootstrap.min.js"></script>
-
+		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/jquery.validate.min.js"></script>
+		<script src="/assets/js/jquery-additional-methods.min.js"></script>
+		
+		<!-- uiAlert -->
+		<script src="/assets/js/spc_functions.js"></script>
+		<script src="/assets/js/jquery-confirm.js"></script>
 		<!-- page specific plugin scripts -->
 		
 		<?php echo $this->fetch('plugin_script');?>
