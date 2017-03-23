@@ -118,6 +118,7 @@ class AppController extends Controller {
 		        'DatabaseUpdate'=>array(
 	                'index'=>(!$is_mobile?true:false),
 	                'applySQL'=>(!$is_mobile?true:false),
+	                'update_worker_price'=>(!$is_mobile?true:false),
 		        ),
 		        'DatabaseStructure'=>array(
 		                'index'=>(!$is_mobile?true:false),
