@@ -31,7 +31,6 @@ class TblMstepSiteWorker extends AppModel {
 		'TblMstepSiteSchedule'=>array(
 			'className'=>'TblMstepSiteSchedule',
 			'foreignKey'=>'schedule_id',
-			'conditions'=>'TblMstepSiteSchedule.del_flg=0',
 		)
 	);
 }

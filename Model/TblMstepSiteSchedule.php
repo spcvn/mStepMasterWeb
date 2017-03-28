@@ -40,7 +40,6 @@ class TblMstepSiteSchedule extends AppModel {
 		'TblMstepSiteWorker' => array(
 			'className' => 'TblMstepSiteWorker',
 			'foreignKey' => 'schedule_id',
-			'conditions' => array('TblMstepSiteWorker.del_flg' => '0'),
 			'order' => 'TblMstepSiteWorker.id DESC',
 			'dependent' => true,
 		),

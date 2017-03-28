@@ -123,7 +123,10 @@ class AppController extends Controller {
 		        'DatabaseStructure'=>array(
 		                'index'=>(!$is_mobile?true:false),
 		                'updateStruct'=>(!$is_mobile?true:false),
-		        )
+		        ),
+				'Users'=>array(
+					'reset_passwd'=>(!$is_mobile?true:false),
+				)
 			),
 			'mstep'=>array(
 				'Clients'=>array(

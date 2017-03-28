@@ -39,7 +39,6 @@ class TblMstepWorker extends AppModel {
         'TblMstepWorkerPrice' => array(
 			'className' => 'TblMstepWorkerPrice',
 			'foreignKey' => 'worker_id',
-			'conditions' => array('TblMstepWorkerPrice.del_flg' => '0'),
             'order' => array('TblMstepWorkerPrice.date' => 'desc')
 		),
     );

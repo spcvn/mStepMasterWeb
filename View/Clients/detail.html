@@ -2,7 +2,7 @@
 	<div class="col-xs-12">
 		<div class="tabbable">
 			<ul class="nav nav-tabs" id="myTab">
-				<li class="active">
+				<li>
 					<a data-toggle="tab" href="#general">
 						<i class="green ace-icon fa fa-info bigger-120"></i>
 						<?php echo __('General Information');?>
@@ -22,9 +22,17 @@
 						<?php echo __('System Information');?>
 					</a>
 				</li>
+				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
+				<li class="active">
+					<a data-toggle="tab" href="#master_acc">
+						<i class="brown ace-icon fa fa-key bigger-120"></i>
+						<?php echo __('Master account information');?>
+					</a>
+				</li>
+				<?php endif;?>
 			</ul>
 			<div class="tab-content">
-				<div id="general" class="tab-pane fade in active">
+				<div id="general" class="tab-pane fade">
 					<div class="general-info">
 						<h4 class="blue">
 							<span class="middle"><?php echo __('General Information');?></span>
@@ -167,6 +175,68 @@
 					</div>
 				</div>
 
+				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
+				<div id="master_acc" class="tab-pane fade in active">
+					<div class="system-info">
+						<h4 class="blue">
+							<span class="middle"><?php echo __('Master account information');?></span>
+						</h4>
+
+						<div class="profile-user-info">
+							<form name="frm_pass_management" method="post" action="/">
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('Login ID');?> </div>
+								<div class="profile-info-value">
+									<span><?= $master_data['TblMstepMasterUser']['login_id']?></span>
+									<input type="hidden" name="user_id" value="<?php echo $master_data['TblMstepMasterUser']['id']?>"/>
+									<input type="hidden" name="client_id" value="<?php echo $client['Clients'][0]['id']?>"/>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('Old Password');?> </div>
+								<div class="profile-info-value">
+									<span>********</span>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('New Password');?> </div>
+								<div class="profile-info-value">
+									<input type="password" name="passwd" id="passwd" value="" minlength="6" required data-msg="<?php echo __('This field is required.')?>" data-msg-minlength="<?php echo __('(Minimum is 6 characters)');?>"/>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('Confirm New Password');?> </div>
+
+								<div class="profile-info-value">
+									<input type="password" name="passwd_confirm" value="" minlength="6" required data-rule-equalTo="#passwd" data-msg="<?php echo __('This field is required.')?>" data-msg-minlength="<?php echo __('(Minimum is 6 characters)');?>"/>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('Random password');?></div>
+
+								<div class="profile-info-value">
+									<input type="text" name="pass_string" value=""/>
+									<button type="button" name="passwd_generate"><?php echo __('Generate');?></button>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"></div>
+
+								<div class="profile-info-value">
+									<button class="btn" type="submit" name="btn_change_passwd"><?php echo __('Change password');?></button>
+<!--									<span>--><?//= $client['Clients'][0]['db_password']?><!--</span>-->
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<?php endif;?>
 			</div>
 		</div>
 		<div class="space-4"></div>
@@ -177,11 +247,49 @@
 		</div>
 	</div>
 </div>
+<?php $this->html->script('/assets/js/custom.js',['block'=>'plugin_script']);?>
 <?php $this->start('second_script');?>
 <script type="text/javascript">
 	$(function(){
 		$('button.btn-edit').on('click', function(e){
 			location.href='<?php echo Router::url(['controller'=>'Clients','action'=>'add']);?>/'+$(this).parent().find(':hidden[name=client_id]').val();
+		});
+		
+		$('button[name="passwd_generate"]').on('click',function(event){
+			var _obj=$(this);
+			var _random_pass=strRandom();
+			$('input[name="pass_string"]').val(_random_pass);
+			$('input[name="passwd_confirm"]').val(_random_pass);
+			$('input[name="passwd"]').val(_random_pass);
+		});
+		
+		$('form[name="frm_pass_management"]').validate({
+			errorClass:'error red',
+			submitHandler: function(form){
+				var _form=$(form);
+				var _f_data=_form.serialize();
+				var _change_pass_url='/users/reset_passwd';
+				
+				$.post(_change_pass_url,_f_data, function(res){
+					if(res.status=="YES"){
+						$.confirm({
+							title: '',
+							content: res.message +"<br/><br/>" +
+							res.login_id.caption+": "+res.login_id.value+"<br/>"+
+							res.password.caption+": "+res.password.value,
+							buttons: {
+								ok: {
+									btnClass: 'btn-danger',
+									action: function (e) {
+										_form.trigger('reset');
+									}
+								}
+							}
+						});
+					}
+				},'json');
+				return false;
+			}
 		});
 	});
 </script>

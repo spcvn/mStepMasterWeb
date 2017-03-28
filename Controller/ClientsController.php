@@ -16,8 +16,10 @@ class ClientsController extends AppController {
     var $uses = [
             'ClientProfile',
             'Clients',
-            'TblMstepClientRequest'
+            'TblMstepClientRequest',
+			'TblMstepMasterUser',
     ];
+	var $components=array('DatabaseConnection');
 
 	public function index(){
 		
@@ -52,7 +54,20 @@ class ClientsController extends AppController {
         );
 	    
 	    $client = $this->ClientProfile->findById($id);
-	    $this->set(compact('client'));
+		// get Client Master information;
+		
+		$DBConnectionName=$client['Clients']['0']['short_name'];
+		
+		// get Client master user information
+		$master_data=array();
+		if($this->DatabaseConnection->createDBConnection($client['Clients']['0'],$DBConnectionName)) {
+			// set new database connection to Client
+			$this->TblMstepMasterUser->setDataSource($DBConnectionName);
+			// get master user information
+			$master_data=$this->TblMstepMasterUser->find('first',array('conditions'=>array("TblMstepMasterUser.authority='master'")));
+		}
+		
+		$this->set(compact('client','master_data'));
 	}
 	
 	function updateStatus(){
