@@ -484,3 +484,36 @@ msgstr "Database structure is updated"
 
 msgid "Login ID or password is wrong."
 msgstr "Login ID or password is wrong."
+
+msgid "Master account information"
+msgstr "Master account information"
+
+msgid "Login ID"
+msgstr "Login ID"
+
+msgid "Old Password"
+msgstr "Old Password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+msgid "Random password"
+msgstr "Random password"
+
+msgid "Generate"
+msgstr "Generate"
+
+msgid "New password has been saved as bellow"
+msgstr "New password has been saved as bellow"
+
+msgid "Minimum of 6 characters"
+msgstr "Minimum of 6 characters"
+
+msgid "Please enter the same value of New Password"
+msgstr "Please enter the same value of New Password"
+
+msgid "Change password"
+msgstr "Change password"

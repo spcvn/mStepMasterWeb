@@ -2,7 +2,7 @@
 	<div class="col-xs-12">
 		<div class="tabbable">
 			<ul class="nav nav-tabs" id="myTab">
-				<li>
+				<li class="active">
 					<a data-toggle="tab" href="#general">
 						<i class="green ace-icon fa fa-info bigger-120"></i>
 						<?php echo __('General Information');?>
@@ -23,7 +23,7 @@
 					</a>
 				</li>
 				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
-				<li class="active">
+				<li>
 					<a data-toggle="tab" href="#master_acc">
 						<i class="brown ace-icon fa fa-key bigger-120"></i>
 						<?php echo __('Master account information');?>
@@ -32,7 +32,7 @@
 				<?php endif;?>
 			</ul>
 			<div class="tab-content">
-				<div id="general" class="tab-pane fade">
+				<div id="general" class="tab-pane fade in active">
 					<div class="general-info">
 						<h4 class="blue">
 							<span class="middle"><?php echo __('General Information');?></span>
@@ -176,7 +176,7 @@
 				</div>
 
 				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
-				<div id="master_acc" class="tab-pane fade in active">
+				<div id="master_acc" class="tab-pane fade">
 					<div class="system-info">
 						<h4 class="blue">
 							<span class="middle"><?php echo __('Master account information');?></span>
@@ -228,7 +228,7 @@
 								<div class="profile-info-name"></div>
 
 								<div class="profile-info-value">
-									<button class="btn" type="submit" name="btn_change_passwd"><?php echo __('Change password');?></button>
+									<button class="btn btn-danger" type="submit" name="btn_change_passwd"><?php echo __('Change password');?></button>
 <!--									<span>--><?//= $client['Clients'][0]['db_password']?><!--</span>-->
 								</div>
 							</div>
@@ -247,7 +247,7 @@
 		</div>
 	</div>
 </div>
-<?php $this->html->script('/assets/js/custom.js',['block'=>'plugin_script']);?>
+<?php $this->Html->script('/assets/js/custom.js',['block'=>'plugin_script']);?>
 <?php $this->start('second_script');?>
 <script type="text/javascript">
 	$(function(){

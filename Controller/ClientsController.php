@@ -43,6 +43,7 @@ class ClientsController extends AppController {
 	    if (!is_numeric($id)) {
 	        throw new NotFoundException();
 	    }
+		$this->page_title=__('Clients');
 	    $this->ClientProfile->bindModel(array(
 	            'hasMany' => array(
 	                    'Clients' => array(

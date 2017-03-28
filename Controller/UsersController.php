@@ -144,8 +144,8 @@ class UsersController extends AppController {
 				$user=$this->TblMstepMasterUser->read();
 				Output::__outputYes(
 					array(
-						'message' => __('New password has been saved as bellow:'),
-						'login_id'=>array('caption'=>__('ID'), 'value'=>$user['TblMstepMasterUser']['login_id']),
+						'message' => __('New password has been saved as bellow'),
+						'login_id'=>array('caption'=>__('Login ID'), 'value'=>$user['TblMstepMasterUser']['login_id']),
 						'password'=>array('caption'=>__('Password'), 'value'=>$user_data['passwd'])
 					)
 				);

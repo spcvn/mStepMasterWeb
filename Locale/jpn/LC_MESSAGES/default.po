@@ -514,3 +514,36 @@ msgstr "データーベース構成が更新できました"
 
 msgid "Login ID or password is wrong."
 msgstr "ログインIDまたはパスワードが正しくないです。"
+
+msgid "Master account information"
+msgstr "マスタアカウント情報"
+
+msgid "Login ID"
+msgstr "ログインID"
+
+msgid "Old Password"
+msgstr "旧パスワード"
+
+msgid "New Password"
+msgstr "新パスワード"
+
+msgid "Confirm New Password"
+msgstr "新パスワード確認"
+
+msgid "Random password"
+msgstr "パスワードランダム"
+
+msgid "Generate"
+msgstr "作り出し"
+
+msgid "New password has been saved as bellow"
+msgstr "下記のように新パスワードが保存されました"
+
+msgid "Minimum of 6 characters"
+msgstr "最低６文字"
+
+msgid "Please enter the same value of New Password"
+msgstr "新パスワードの値と同じように入力してください"
+
+msgid "Change password"
+msgstr "変更する"

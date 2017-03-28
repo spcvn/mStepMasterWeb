@@ -65,10 +65,7 @@ class TblMstepMasterUser extends AppModel {
 				$this->data[$this->alias]['login_pass']
 			);
 		}
-		if (empty($this->data[$this->alias]['modified'])) {
-			$this->data[$this->alias]['modified'] = date("Y-m-d H:i:s");
-		}
-		return true;
+		parent::beforeSave($options);
 	}
 
 }
