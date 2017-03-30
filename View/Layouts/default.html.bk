@@ -93,8 +93,8 @@ var API_VERSION=1;
 						}});
 				}
 		
-		}catch(defPropException){ /*Do nothing if an exception occurs*/ };
-
+} catch (defPropException) { /*Do nothing if an exception occurs*/
+		}
 		var is_local=(location.host.indexOf("local")>-1);
 		if(!is_local){
 	

@@ -157,10 +157,10 @@
 <script type="text/javascript">
 	var find_request_id=function(agr1){
 		return $(this).parents('td').first().find(':hidden[name="request_id"]').val();
-	}
+	};
 	var find_client_id=function(){
 		return $(this).parents('td').first().find(':hidden[name="client_id"]').val();
-	}
+	};
 	
 	$(function() {
 		$('#request_table').DataTable({

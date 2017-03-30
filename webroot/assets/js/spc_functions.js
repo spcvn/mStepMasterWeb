@@ -22,7 +22,7 @@ var isNetworkError=function(){
 		}
 
 		return res;
-}
+};
 
 var loadScript=function(path,callback){
 
@@ -63,7 +63,7 @@ var loadScript=function(path,callback){
 						if(head && script.parentNode) head.removeChild(script);
 				}
 		};
-}
+};
 
 var getWeekDayFromNow=function(ms,num){
 
@@ -77,14 +77,14 @@ var getWeekDayFromNow=function(ms,num){
 		res.push(origin+"");
 		for(var i=1;i<=(num-1);i++) res.push(origin.addDate(i));
 		return res;
-}
+};
 
 var isSmart=function(){
 
 		var ua=navigator.userAgent.toLowerCase();
 		if(ua.indexOf('iphone')>0 || ua.indexOf('ipod')>0 || ua.indexOf('android')>0 && ua.indexOf('mobile')>0) return true;
 		return false;
-}
+};
 
 var isTablet=function(){
 
@@ -92,13 +92,13 @@ var isTablet=function(){
 		if(isSmart()) return false;
 		if(ua.indexOf('ipad')>0 || ua.indexOf('android')>0) return true;
 		return false;
-}
+};
 
 var isSp=function(){
 
 		if(isSmart() || isTablet()) return true;
 		return false;
-}
+};
 
 var uiAlert=function(params){
 
@@ -135,13 +135,13 @@ var uiAlert=function(params){
 
 				jQuery.confirm(settings);
 		});
-}
+};
 
 var nl2br=function(str, is_xhtml) {   
 
     	var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
     	return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
-}
+};
 
 var modalWindow=function(callback){
 
@@ -159,7 +159,7 @@ var modalWindow=function(callback){
 						"ch":html.outerHeight()
 				});
 		});
-}
+};
 
 function floatFormat(number,n){
 

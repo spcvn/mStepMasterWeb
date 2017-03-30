@@ -63,11 +63,11 @@
 				if($.isFunction(params["close"])){ 
 
 						params["close"]();
-						return;
+
 				}
 		  });
 		});
-	}
+	};
 
 	$.confirm.hide = function(callback){
 
