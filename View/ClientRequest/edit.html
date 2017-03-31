@@ -34,6 +34,17 @@
 					<input type="tel" name="client_fax" value="<?php echo ((isset($request['TblMstepClientRequest']['client_fax']))?$request['TblMstepClientRequest']['client_fax']:'')?>" id="txt_client_fax" class="form-control" placeholder="<?php echo __('Client fax')?>" pattern="(^[0-9\.\+\- ]+$)" data-msg-pattern="<?php echo __('Fax format invalid');?>"/>
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="domain" class="col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
+				<div class="col-sm-5 width-20">
+					<input type="text" name="sub_domain" id="domain" value="<?php echo ((isset($request['TblMstepClientRequest']['sub_domain']))?$request['TblMstepClientRequest']['sub_domain']:'')?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+				</div>
+				<span class="help-inline col-sm-4 no-padding-left">
+					<label class="middle">
+						<span class="lbl">.<?=DOMAIN_NAME_MSTEP?></span>
+					</label>
+				</span>
+			</div>
 		</div>
 		<div class="col col-xs-12">
 			<h4 class="lighter block green"><?php echo __('Contact information');?></h4>
@@ -120,6 +131,10 @@
 		var removeErrorClass=function(){
 			return $(this).removeClass('has-error');
 		};
+		
+		$('input[name="sub_domain"]').on('change',function(e){
+			
+		});
 
 		$('form[name="frm_request"]').validate({
 			errorClass:'help-block',

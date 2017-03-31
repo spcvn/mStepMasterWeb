@@ -32,6 +32,12 @@
 					<span><?php echo ((isset($request['TblMstepClientRequest']['client_fax']))?$request['TblMstepClientRequest']['client_fax']:'')?></span>
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right no-padding-top"><?php echo __('Domain');?>:</label>
+				<div class="col-sm-9">
+					<span><?php echo ((isset($request['TblMstepClientRequest']['sub_domain']))?$request['TblMstepClientRequest']['sub_domain'].'.'.DOMAIN_NAME_MSTEP:'')?></span>
+				</div>
+			</div>
 			<div class="space-4"></div>
 			<h4 class="lighter block green"><?php echo __('Contact information');?></h4>
 			<div class="form-group">
@@ -91,7 +97,7 @@
 					<button class="btn btn-danger" id="btn_reject">
 						<i class="fa fa-fw fa-times"></i>&nbsp;<?php echo __('Reject');?></button>
 					<?php endif;?>
-					<?php if((isset($allows['Clients']['add']) and $allows['Clients']['add']) and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
+					<?php if($allow_add_client and !in_array($request['TblMstepClientRequest']['status'],array('created','rejected'))) :?>
 					
 					<button class="btn btn-success" id="btn_create">
 						<i class="fa fa-fw fa-share"></i>&nbsp;<?php echo __('Create');?></button>

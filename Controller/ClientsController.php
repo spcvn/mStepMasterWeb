@@ -134,8 +134,14 @@ class ClientsController extends AppController {
 	        
 	        $datasource = $this->Clients->getDataSource();
 	        $datasource->begin();
-	        
-	        if(!empty($post['client_id'])){
+			
+			// db default
+			if($post['db_host']=='') { $post['db_host']=DEFAULT_DATABASE_SERVER; }
+			if($post['db_user']=='') { $post['db_user']=DEFAULT_DATABASE_USER_NAME; }
+			if($post['db_port']=='') { $post['db_port']=DEFAULT_DATABASE_PORT; }
+			if($post['db_password']=='') { $post['db_password']=DEFAULT_DATABASE_PASSWORD; }
+		
+			if(!empty($post['client_id'])){
 	            
 	            if($conn = mysqli_connect($post['db_host'], $post['db_user'], $post['db_password'], $post['db_name'], $post['db_port'])){
 	            }else{

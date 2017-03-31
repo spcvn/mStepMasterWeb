@@ -148,26 +148,26 @@
 										<label for="domain" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-4">
 											<span class="block input-icon">
-												<input type="text" name="short_name" id="domain" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="short_name" id="domain" maxlength="10" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-globe"></i>
 											</span>
 										</div>
-										<div class="help-inline col-xs-12 col-sm-reset inline"> .<?=DOMAIN_NAME_MSTEP?></div>
+										<div class="help-inline col-xs-12 col-sm-reset inline">.<?=DOMAIN_NAME_MSTEP?></div>
 									</div>
 									<div class="form-group">
-										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?><span class="required">※</span></label>
+										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_host" id="db-host" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_host" id="db-host" placeholder="<?=DEFAULT_DATABASE_SERVER?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="db-port" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Port') ?><span class="required">※</span></label>
+										<label for="db-port" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Port') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_port" id="db-port" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_port" id="db-port" placeholder="<?=DEFAULT_DATABASE_PORT?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
@@ -182,10 +182,10 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="db-user" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB User') ?><span class="required">※</span></label>
+										<label for="db-user" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB User') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_user" id="db-user" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_user" id="db-user" placeholder="<?=DEFAULT_DATABASE_USER_NAME?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -307,6 +307,7 @@
 		mobile.val(request['TblMstepClientRequest']['contact_mobile']);
 		phone_c.val(request['TblMstepClientRequest']['contact_tel']);
 		email_s.val(request['TblMstepClientRequest']['client_email']);
+		domain.val(request['TblMstepClientRequest']['sub_domain']);
 	}else{
 		if($.isNumeric(client_id)) {
 			var client = <?php echo json_encode($client); ?>;
