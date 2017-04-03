@@ -547,3 +547,6 @@ msgstr "新パスワードの値と同じように入力してください"
 
 msgid "Change password"
 msgstr "変更する"
+
+msgid "sub_domain is use already"
+msgstr "{0}は既に利用されました"

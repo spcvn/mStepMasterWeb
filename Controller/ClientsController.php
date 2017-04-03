@@ -268,4 +268,27 @@ class ClientsController extends AppController {
 	    return $password;
 	    
 	}
+    
+    
+    public function checkDomainTaken(){
+        $this->autoRender=false;
+        if($this->request->is('ajax')) {
+            if(empty($this->request->data['sub_domain']) or in_array($this->request->data['sub_domain'], SPECIFIC_SUB_DOMAIN)) {
+                echo "false";
+            } else {
+                $clients = $this->Clients->find('first', ['conditions' => [
+                    'short_name' => $this->request->data['sub_domain']
+                ]]);
+                if (sizeof($clients) > 0) {
+                    echo "false";
+                } else {
+    
+                    echo "true";
+                }
+            }
+        } else {
+            echo "false";
+        }
+        die;
+    }
 }

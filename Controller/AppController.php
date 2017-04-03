@@ -109,6 +109,7 @@ class AppController extends Controller {
 					'randomPassword'=>(!$is_mobile?true:false),
 					'detail'=>true,
 					'checkConnectDB'=>true,
+					'checkDomainTaken'=>true,
 				),
 				'ClientRequest'=>array(
 					'index'=>(!$is_mobile?true:false),
@@ -133,7 +134,8 @@ class AppController extends Controller {
 					'index'=>true,
 					'detail'=>true,
 					'checkConnectDB'=>true,
-			        'add'=>(!$is_mobile?true:false)
+			        'add'=>(!$is_mobile?true:false),
+					'checkDomainTaken'=>true,
 				),
 				'ClientRequest'=>array(
 					'index'=>true,

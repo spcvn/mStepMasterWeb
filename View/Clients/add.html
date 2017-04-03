@@ -461,7 +461,15 @@
 				pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
 			},
 			short_name:{
-				notEqual:["pm", "lp", "demo", "master"],
+				remote: {
+					url:'/clients/checkDomainTaken',
+					type: "post",
+					data: {
+						'sub_domain': function(){
+							return $('input[name=short_name]').val();
+						}
+					}
+				}
 			},
 			client_tel:{
 				pattern: /^[0-9\.\+\- ]+$/,
@@ -478,7 +486,7 @@
 		},
 		messages:{
 			short_name:{
-				notEqual: "<?php echo __('Please input a different (non-default) value');?>",
+				remote: $.validator.format("<?php echo __('sub_domain is use already');?>")
 			},
 			client_email:{	
 				pattern: "<?php echo __('Email format invalid');?>",

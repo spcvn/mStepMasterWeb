@@ -138,6 +138,25 @@
 
 		$('form[name="frm_request"]').validate({
 			errorClass:'help-block',
+			rules:{
+				'sub_domain':{
+					required: true,
+					remote: {
+						url: "/clients/checkDomainTaken",
+						type: 'post',
+						data: {
+							'sub_domain': function(){
+								return $('input[name=sub_domain]').val();
+							}
+						}
+					}
+				}
+			},
+			messages: {
+				'sub_domain':{
+					remote: $.validator.format("<?php echo __('sub_domain is use already');?>")
+				}
+			},
 			errorPlacement: function(err, ele){
 				addErrorClass.call(ele.parents('.form-group').first());
 				err.insertAfter(ele);
@@ -178,6 +197,8 @@
 				},'json');
 			}
 		});
+		
+		
 
 		$('form[name=frm_request] button[name=btn_cancel]').on('click',function () {
 			location.href='<?php echo Router::url(array("controller"=>"client_request", "action"=>"index"));?>';

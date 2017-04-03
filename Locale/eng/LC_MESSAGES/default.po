@@ -517,3 +517,9 @@ msgstr "Please enter the same value of New Password"
 
 msgid "Change password"
 msgstr "Change password"
+
+msgid "sub_domain is use already"
+msgstr "{0} is use already"
+
+msgid "sub_domain is use already"
+msgstr "{0} is use already"
