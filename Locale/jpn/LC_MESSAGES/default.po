@@ -552,4 +552,4 @@ msgid "sub_domain is use already"
 msgstr "{0}は既に利用されました"
 
 msgid "client reset passwd confirm message"
-msgstr "You cannot restore old password after reset it.<br/>Are you sure to continues?"
+msgstr "リセットした場合、旧パスワードを修復することができません。続けても良いですか？"
