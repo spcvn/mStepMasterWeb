@@ -110,6 +110,7 @@ class AppController extends Controller {
 					'detail'=>true,
 					'checkConnectDB'=>true,
 					'checkDomainTaken'=>true,
+					'reset_passwd'=>(!$is_mobile?true:false),
 				),
 				'ClientRequest'=>array(
 					'index'=>(!$is_mobile?true:false),
@@ -126,7 +127,7 @@ class AppController extends Controller {
 		                'updateStruct'=>(!$is_mobile?true:false),
 		        ),
 				'Users'=>array(
-					'reset_passwd'=>(!$is_mobile?true:false),
+					
 				)
 			),
 			'mstep'=>array(

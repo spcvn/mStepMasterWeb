@@ -270,24 +270,41 @@
 				var _f_data=_form.serialize();
 				var _change_pass_url='/users/reset_passwd';
 				
-				$.post(_change_pass_url,_f_data, function(res){
-					if(res.status=="YES"){
-						$.confirm({
-							title: '',
-							content: res.message +"<br/><br/>" +
-							res.login_id.caption+": "+res.login_id.value+"<br/>"+
-							res.password.caption+": "+res.password.value,
-							buttons: {
-								ok: {
-									btnClass: 'btn-danger',
-									action: function (e) {
-										_form.trigger('reset');
+				$.confirm({
+					title: '',
+					content: "<?php echo __('client reset passwd confirm message');?>",
+					buttons: {
+						yes: {
+							text: "<?php echo __('Yes');?>",
+							btnClass: 'btn-danger',
+							action:function(){
+								$.post(_change_pass_url,_f_data, function(res){
+									if(res.status=="YES"){
+										$.confirm({
+											title: '',
+											content: res.message +"<br/><br/>" +
+											res.login_id.caption+": "+res.login_id.value+"<br/>"+
+											res.password.caption+": "+res.password.value,
+											buttons: {
+												ok: {
+													btnClass: 'btn-danger',
+													action: function (e) {
+														_form.trigger('reset');
+													}
+												}
+											}
+										});
 									}
-								}
+								},'json');
 							}
-						});
+						},
+						cancel:{
+							text: '<?php echo __('Cancel');?>',
+							action: function(){}
+						}
 					}
-				},'json');
+				})
+				
 				return false;
 			}
 		});

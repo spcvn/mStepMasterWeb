@@ -550,3 +550,6 @@ msgstr "変更する"
 
 msgid "sub_domain is use already"
 msgstr "{0}は既に利用されました"
+
+msgid "client reset passwd confirm message"
+msgstr "You cannot restore old password after reset it.<br/>Are you sure to continues?"

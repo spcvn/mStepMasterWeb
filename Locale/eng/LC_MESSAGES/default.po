@@ -523,3 +523,6 @@ msgstr "{0} is use already"
 
 msgid "sub_domain is use already"
 msgstr "{0} is use already"
+
+msgid "client reset passwd confirm message"
+msgstr "You cannot restore old password after reset it. Are you sure to continues?"

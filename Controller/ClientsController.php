@@ -269,6 +269,41 @@ class ClientsController extends AppController {
 	    
 	}
     
+    public function reset_passwd(){
+        if($this->request->is('Ajax')){
+            $user_data=$this->data;
+            
+            if(empty($user_data['client_id'])) { Output::__output(1); }
+            if(empty($user_data['user_id'])) { Output::__output(2); }
+            
+            // get client information
+            $this->Clients->id=$user_data['client_id'];
+            $client=$this->Clients->read();
+            if(empty($client)) { Output::__output(3); }
+
+//			v($client);
+            // create new database config
+            $config_name=$this->DatabaseConnection->createDBConnection($client['Clients']);
+            $this->TblMstepMasterUser->setDataSource($config_name);
+            $this->TblMstepMasterUser->id=$user_data['user_id'];
+            // set new password
+            $this->TblMstepMasterUser->set(array('login_pass'=>$user_data['passwd']));
+            // Do save action
+            if($this->TblMstepMasterUser->save()) {
+                $user=$this->TblMstepMasterUser->read();
+                Output::__outputYes(
+                    array(
+                        'message' => __('New password has been saved as bellow'),
+                        'login_id'=>array('caption'=>__('Login ID'), 'value'=>$user['TblMstepMasterUser']['login_id']),
+                        'password'=>array('caption'=>__('Password'), 'value'=>$user_data['passwd'])
+                    )
+                );
+            }
+        }
+        
+        Output::__outputNo();
+    }
+    
     
     public function checkDomainTaken(){
         $this->autoRender=false;
