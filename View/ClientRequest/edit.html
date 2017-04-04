@@ -1,3 +1,6 @@
+<style type="text/css">
+	.domain-row span.lbl {position: absolute; right: 0px; top: 0px; padding-right:19px; padding-top:7px;}
+</style>
 <div class="row">
 	<form name="frm_request" class="form-horizontal" role="form" action="/client_request/save_process" method="post" novalidate>
 		<input type="hidden" name="id" value="<?php echo ((isset($request['TblMstepClientRequest']['id']))?$request['TblMstepClientRequest']['id']:'');?>"/>
@@ -36,14 +39,10 @@
 			</div>
 			<div class="form-group">
 				<label for="domain" class="col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
-				<div class="col-sm-5 width-20">
+				<div class="domain-row col-sm-5">
 					<input type="text" name="sub_domain" id="domain" value="<?php echo ((isset($request['TblMstepClientRequest']['sub_domain']))?$request['TblMstepClientRequest']['sub_domain']:'')?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+					<span class="domain-txt lbl">.<?=DOMAIN_NAME_MSTEP?></span>
 				</div>
-				<span class="help-inline col-sm-4 no-padding-left">
-					<label class="middle">
-						<span class="lbl">.<?=DOMAIN_NAME_MSTEP?></span>
-					</label>
-				</span>
 			</div>
 		</div>
 		<div class="col col-xs-12">
@@ -105,6 +104,9 @@
 <script type="text/javascript">
 	var is_out_ip = <?php echo json_encode($is_out_ip); ?>;
 	$(function () {
+		// set padding right into textbox domain
+		$('div.domain-row input#domain').css({'padding-right':$('div.domain-row .domain-txt').outerWidth()+parseInt($('div.domain-row').css('padding-right'))+'px'});
+		
 		$(':checkbox.cp_chk').each(function () {
 			var obj = $(this);
 			var s=$(this).data('s'),
