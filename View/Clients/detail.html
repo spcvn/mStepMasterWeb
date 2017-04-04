@@ -22,7 +22,10 @@
 						<?php echo __('System Information');?>
 					</a>
 				</li>
-				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
+				<?php if(!empty($master_data['TblMstepMasterUser'])
+					and sizeof($master_data['TblMstepMasterUser'])>0
+					and ((isset($allows['Clients']['reset_passwd'])
+						and $allows['Clients']['reset_passwd']))):?>
 				<li>
 					<a data-toggle="tab" href="#master_acc">
 						<i class="brown ace-icon fa fa-key bigger-120"></i>
@@ -175,7 +178,10 @@
 					</div>
 				</div>
 
-				<?php if(!empty($master_data['TblMstepMasterUser']) and sizeof($master_data['TblMstepMasterUser'])>0):?>
+				<?php if(!empty($master_data['TblMstepMasterUser'])
+					and sizeof($master_data['TblMstepMasterUser'])>0
+					and ((isset($allows['Clients']['reset_passwd'])
+						and $allows['Clients']['reset_passwd']))):?>
 				<div id="master_acc" class="tab-pane fade">
 					<div class="system-info">
 						<h4 class="blue">
