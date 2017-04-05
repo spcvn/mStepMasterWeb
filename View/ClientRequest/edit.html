@@ -1,5 +1,5 @@
 <style type="text/css">
-	.domain-row span.lbl {position: absolute; right: 0px; top: 0px; padding-right:19px; padding-top:7px;}
+	div.domain-row span.domain-txt {position: absolute; right: 0px; top: 0px; padding-right:19px; padding-top:7px;}
 </style>
 <div class="row">
 	<form name="frm_request" class="form-horizontal" role="form" action="/client_request/save_process" method="post" novalidate>
@@ -40,7 +40,7 @@
 			<div class="form-group">
 				<label for="domain" class="col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
 				<div class="domain-row col-sm-5">
-					<input type="text" name="sub_domain" id="domain" value="<?php echo ((isset($request['TblMstepClientRequest']['sub_domain']))?$request['TblMstepClientRequest']['sub_domain']:'')?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+					<input type="text" name="sub_domain" maxlength="10" id="domain" value="<?php echo ((isset($request['TblMstepClientRequest']['sub_domain']))?$request['TblMstepClientRequest']['sub_domain']:'')?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 					<span class="domain-txt lbl">.<?=DOMAIN_NAME_MSTEP?></span>
 				</div>
 			</div>
@@ -133,16 +133,13 @@
 		var removeErrorClass=function(){
 			return $(this).removeClass('has-error');
 		};
-		
-		$('input[name="sub_domain"]').on('change',function(e){
-			
-		});
 
 		$('form[name="frm_request"]').validate({
 			errorClass:'help-block',
 			rules:{
 				'sub_domain':{
 					required: true,
+					pattern: /(((^[a-z]{1,})([a-z0-9]{0,}))|(^[a-z]([a-z0-9\_\-]{1,})([a-z0-9]{1,})))$/,
 					remote: {
 						url: "/clients/checkDomainTaken",
 						type: 'post',
@@ -156,8 +153,9 @@
 			},
 			messages: {
 				'sub_domain':{
-					remote: $.validator.format("<?php echo __('sub_domain is use already');?>")
-				}
+					remote: $.validator.format("<?php echo __('sub_domain is use already');?>"),
+					pattern: "<?php echo __("sub_domain is not valid")?>",
+				},
 			},
 			errorPlacement: function(err, ele){
 				addErrorClass.call(ele.parents('.form-group').first());

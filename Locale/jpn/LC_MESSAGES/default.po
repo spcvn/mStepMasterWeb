@@ -553,3 +553,6 @@ msgstr "{0}は既に利用されました"
 
 msgid "client reset passwd confirm message"
 msgstr "リセットした場合、旧パスワードを修復することができません。続けても良いですか？"
+
+msgid "sub_domain is not valid"
+msgstr "サブドメインの形式が無効です"

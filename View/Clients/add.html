@@ -1,3 +1,6 @@
+<style type="text/css">
+	div.domain-row span.domain-txt {position: absolute; right: 0px; top: 0px; padding-right:19px; padding-top:7px;}
+</style>
 <div class="row">
 	<div class="col-xs-12">
 		<div class="widget-box">
@@ -29,7 +32,7 @@
 						<div class="step-content pos-rel">
 							<div class="step-pane active input-step" data-step="1">
 
-								<form class="form-horizontal" id="client-form">
+								<form class="form-horizontal" id="client-form" autocomplete="off" >
 									<input type="hidden" name="client_id" id="client-id" />
 									<input type="hidden" name="request_id" id="request-id" />
 									<h3 class="lighter block green"><?= __('General Information') ?></h3>
@@ -37,7 +40,7 @@
 										<label for="client-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Client Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="client_name" id="client-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="client_name" id="client-name" autocomplete="off" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -46,7 +49,7 @@
 										<label for="address" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Address') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="client_address" id="address" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="client_address" id="address" autocomplete="off" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-map-marker"></i>
 											</span>
 										</div>
@@ -55,7 +58,7 @@
 										<label for="phone" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Phone') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="tel" name="client_tel" id="phone" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="tel" name="client_tel" id="phone" autocomplete="off" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-phone"></i>
 											</span>
 										</div>
@@ -64,7 +67,7 @@
 										<label for="email-s" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Email') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="email" name="client_email" id="email-s" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="email" name="client_email" autocomplete="off" id="email-s" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-envelope"></i>
 											</span>
 										</div>
@@ -73,7 +76,7 @@
 										<label for="fax" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Fax') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="tel" name="client_fax" id="fax" class="width-100" />
+												<input type="tel" name="client_fax" id="fax" autocomplete="off" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-fax"></i>
 											</span>
 										</div>
@@ -84,7 +87,7 @@
 										<label for="contact-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Contact Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="contact_name" id="contact-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="contact_name" autocomplete="off" id="contact-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -93,7 +96,7 @@
 										<label for="job-title" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Job title') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="contact_jobtitle" id="job-title" class="width-100" />
+												<input type="text" name="contact_jobtitle" autocomplete="off" id="job-title" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-ellipsis-h"></i>
 											</span>
 										</div>
@@ -102,14 +105,14 @@
 										<label for="email" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Email') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="email" name="contact_email" id="email" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="email" name="contact_email" autocomplete="off" id="email" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-envelope"></i>
 											</span>
 										</div>
 										<div class="help-inline col-xs-12 col-sm-reset inline">
 											<div class="checkbox">
 												<label>
-													<input name="form-field-checkbox" type="checkbox" class="ace cp_chk" data-s="#email-s" data-d="#email">
+													<input name="form-field-checkbox" autocomplete="off" type="checkbox" class="ace cp_chk" data-s="#email-s" data-d="#email">
 													<span class="lbl"><?= __('Using Company Email') ?></span>
 												</label>
 											</div>
@@ -119,7 +122,7 @@
 										<label for="mobile" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Mobile') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="tel" name="contact_mobile" id="mobile" class="width-100" />
+												<input type="tel" name="contact_mobile" autocomplete="off" id="mobile" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-mobile"></i>
 											</span>
 										</div>
@@ -128,14 +131,14 @@
 										<label for="phone-c" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Phone') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="tel" name="contact_tel" id="phone-c" class="width-100" />
+												<input type="tel" name="contact_tel" autocomplete="off" id="phone-c" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-phone"></i>
 											</span>
 										</div>
 										<div class="help-inline col-xs-12 col-sm-reset inline">
 											<div class="checkbox">
 												<label>
-													<input name="form-field-checkbox" type="checkbox" class="ace cp_chk" data-s="#phone" data-d="#phone-c">
+													<input name="form-field-checkbox" type="checkbox" autocomplete="off" class="ace cp_chk" data-s="#phone" data-d="#phone-c">
 													<span class="lbl"><?= __('Using Company Phone') ?></span>
 												</label>
 											</div>
@@ -146,19 +149,19 @@
 									<h3 class="lighter block green"><?= __('System Information') ?></h3>
 									<div class="form-group">
 										<label for="domain" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('Domain') ?><span class="required">※</span></label>
-										<div class="col-xs-12 col-sm-4">
+										<div class="domain-row col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="short_name" id="domain" maxlength="10" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="short_name" id="domain" autocomplete="off" maxlength="10" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-globe"></i>
 											</span>
+											<span class="domain-txt lbl">.<?=DOMAIN_NAME_MSTEP?></span>
 										</div>
-										<div class="help-inline col-xs-12 col-sm-reset inline">.<?=DOMAIN_NAME_MSTEP?></div>
 									</div>
 									<div class="form-group">
 										<label for="db-host" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Host') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_host" id="db-host" placeholder="<?=DEFAULT_DATABASE_SERVER?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_host" id="db-host" autocomplete="off" placeholder="<?=DEFAULT_DATABASE_SERVER?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
@@ -167,7 +170,7 @@
 										<label for="db-port" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Port') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_port" id="db-port" placeholder="<?=DEFAULT_DATABASE_PORT?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_port" id="db-port" autocomplete="off" placeholder="<?=DEFAULT_DATABASE_PORT?>" data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-server"></i>
 											</span>
 										</div>
@@ -176,7 +179,7 @@
 										<label for="db-name" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Name') ?><span class="required">※</span></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_name" id="db-name" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_name" id="db-name" autocomplete="off" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-database"></i>
 											</span>
 										</div>
@@ -185,7 +188,7 @@
 										<label for="db-user" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB User') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_user" id="db-user" placeholder="<?=DEFAULT_DATABASE_USER_NAME?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_user" id="db-user" autocomplete="off" placeholder="<?=DEFAULT_DATABASE_USER_NAME?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -194,7 +197,7 @@
 										<label for="db-password" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB Password') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="password" name="db_password" id="db-password" class="width-100" />
+												<input type="password" name="db_password" id="db-password" autocomplete="off" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-key"></i>
 											</span>
 										</div>
@@ -292,6 +295,9 @@
 	var db_user = $('#db-user');
 	var db_password = $('#db-password');
 	var email_s = $('#email-s');
+	
+	// set padding right into textbox domain
+	$('div.domain-row input#domain').css({'padding-right':$('div.domain-row .domain-txt').outerWidth()+parseInt($('div.domain-row').css('padding-right'))+'px'});
 	
 	if(is_request){
 		var request = <?php echo json_encode($request); ?>;
@@ -461,6 +467,7 @@
 				pattern: /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
 			},
 			short_name:{
+				pattern: /(((^[a-z]{1,})([a-z0-9]{0,}))|(^[a-z]([a-z0-9\_\-]{1,})([a-z0-9]{1,})))$/,
 				remote: {
 					url:'/clients/checkDomainTaken',
 					type: "post",
@@ -486,7 +493,8 @@
 		},
 		messages:{
 			short_name:{
-				remote: $.validator.format("<?php echo __('sub_domain is use already');?>")
+				pattern: "<?php echo __("sub_domain is not valid")?>",
+				remote: $.validator.format("<?php echo __('sub_domain is use already');?>"),
 			},
 			client_email:{	
 				pattern: "<?php echo __('Email format invalid');?>",
