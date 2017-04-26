@@ -556,3 +556,6 @@ msgstr "リセットした場合、旧パスワードを修復することがで
 
 msgid "sub_domain is not valid"
 msgstr "サブドメインの形式が無効です"
+
+msgid "Last login"
+msgstr "最終ログイン"

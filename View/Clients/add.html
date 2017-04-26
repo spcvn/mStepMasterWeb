@@ -215,7 +215,7 @@
 											<div class="profile-user-info">
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('CLIENT') ?></label>
-													<span class="profile-info-value col col-lg-9 col-md-8 client-name">.<?=DOMAIN_NAME_MSTEP?></span>
+													<span class="profile-info-value col col-lg-9 col-md-8 client-name"></span>
 												</div>
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Domain') ?></label>
@@ -232,7 +232,7 @@
 												<h4 class="lighter block blue"><?= __('Access Information') ?></h4>
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('Domain') ?></label>
-													<span class="profile-info-value col col-lg-9 col-md-8 domain">.<?=DOMAIN_NAME_MSTEP?></span>
+													<span class="profile-info-value col col-lg-9 col-md-8 domain"></span>
 												</div>
 												<div class="profile-info-row">
 													<label class="col col-lg-3 col-md-4 profile-info-name"><?= __('User(Master)') ?></label>
@@ -369,11 +369,13 @@
 		//buttons: '.wizard-actions:eq(0)'
 	})
 	.on('actionclicked.fu.wizard' , function(e, info){
+		console.log(info);
 		if(info.step == 1){
 			// validate form
 			if(!$('#client-form').valid()){
 				e.preventDefault();
 			}else{
+				
 				$('.input-step form').find('input').each(function(index, el) {
 					var lag = $(this).attr('id');
 					if(lag == 'domain'){
@@ -388,6 +390,11 @@
 						}else{
 							$('.confirm-step').find('span#'+lag).html($(this).val());
 						}
+					}
+					
+					// check default value with placeholder
+					if($(this).val()==''){
+						$('.confirm-step').find('span#'+lag).html($(this).attr('placeholder'));
 					}
 				});
 			}
@@ -409,9 +416,10 @@
 		        		}else{
 		        			$('.finish-step').find('span.password').html("********");
 		        		}
-		        		
-		        		$('#fuelux-wizard-container').wizard('selectedItem', {step: 3});
-		        	}else{
+				
+						$("button.btn-prev").remove();
+						$('#fuelux-wizard-container').wizard('selectedItem', {step: 3});
+					}else{
 		        		if(res.status=='DB'){
 		        			$.confirm({
 		        				title: "<?php echo __('Alert');?>",
@@ -444,7 +452,7 @@
 		        	}
 				}, 'json');
 				
-				$("button.btn-prev").remove();
+				
 			}
 		}
 	})
@@ -546,6 +554,7 @@
 	// Update html step2
 	$(document).ready(function() {
 		var _step2 = $('.confirm-step').html($('.input-step').html());
+		_step2.find('span.domain-txt.lbl').remove();
 		_step2.find('input').each(function(index, el) {
 			$(this).replaceWith($('<span id="' + $(this).attr('id') + '" style="vertical-align:-webkit-baseline-middle">' + $(this).val() + '</span>'));
 		});

@@ -15,6 +15,7 @@
                         <th class="hidden-480"><?= __('Contact name') ?></th>
                         <th class="hidden-480"><?= __('Phone') ?></th>
                         <th><?= __('Status') ?></th>
+                        <th class="hidden-480"><?= __('Last login') ?></th>
                         <th class="hidden-480"><?= __('DB connection') ?></th>
                         <th><?= __('Action') ?></th>
                     </tr>
@@ -28,6 +29,7 @@
                         <td class="hidden-480"><?= $client['ClientProfile']['contact_name']?></td>
                         <td class="hidden-480"><?= $client['ClientProfile']['contact_mobile']?></td>
                         <td data-type="client-status"><?= ($client['Clients'][0]['del_flg']==0)?__('Activated'):__('Deactivated')?></td>
+                        <td class="hidden-480"><?= (($client['Clients'][0]['last_login']!=='')?$client['Clients'][0]['last_login']:'')?></td>
                         <td class="hidden-480" data-type="check-db-status" data-db='{"host":"<?=$client['Clients'][0]['db_host']?>","user":"<?=$client['Clients'][0]['db_user']?>","name":"<?=$client['Clients'][0]['db_name']?>","pass":"<?=$client['Clients'][0]['db_password']?>","port":"<?=$client['Clients'][0]['db_port']?>"}'><?= __('Checking...') ?></td>
                         <td class="actions">
                             <div class="hidden-sm hidden-xs action-buttons button-list">

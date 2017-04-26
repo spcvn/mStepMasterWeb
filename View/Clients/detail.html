@@ -139,7 +139,7 @@
 								<div class="profile-info-name"><?php echo __('Domain');?> </div>
 
 								<div class="profile-info-value">
-									<span><?= $client['Clients'][0]['short_name']?></span>
+									<span><?= $client['Clients'][0]['short_name'].".".DOMAIN_NAME_MSTEP?></span>
 								</div>
 							</div>
 
@@ -172,6 +172,14 @@
 
 								<div class="profile-info-value">
 									<span><?= $client['Clients'][0]['db_password']?></span>
+								</div>
+							</div>
+
+							<div class="profile-info-row">
+								<div class="profile-info-name"><?php echo __('Latest logged in');?> </div>
+
+								<div class="profile-info-value">
+									<span><?= $client['Clients'][0]['last_login']?></span>
 								</div>
 							</div>
 						</div>
@@ -274,7 +282,7 @@
 			submitHandler: function(form){
 				var _form=$(form);
 				var _f_data=_form.serialize();
-				var _change_pass_url='/users/reset_passwd';
+				var _change_pass_url='/clients/reset_passwd';
 				
 				$.confirm({
 					title: '',

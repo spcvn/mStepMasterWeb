@@ -525,4 +525,7 @@ msgid "client reset passwd confirm message"
 msgstr "You cannot restore old password after reset it.<br/>Are you sure to continues?"
 
 msgid "sub_domain is not valid"
-msgstr ""
+msgstr "sub_domain is not valid"
+
+msgid "Last login"
+msgstr "Last login"
