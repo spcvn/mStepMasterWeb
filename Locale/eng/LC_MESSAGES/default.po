@@ -529,3 +529,6 @@ msgstr "sub_domain is not valid"
 
 msgid "Last login"
 msgstr "Last login"
+
+msgid "Db name invalid"
+msgstr "Database name invalid"

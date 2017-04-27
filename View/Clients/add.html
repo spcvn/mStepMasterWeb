@@ -188,7 +188,7 @@
 										<label for="db-user" class="col-xs-12 col-sm-3 control-label no-padding-right"><?= __('DB User') ?></label>
 										<div class="col-xs-12 col-sm-5">
 											<span class="block input-icon">
-												<input type="text" name="db_user" id="db-user" autocomplete="off" placeholder="<?=DEFAULT_DATABASE_USER_NAME?>" required data-msg="<?php echo __('This field is required.');?>" class="width-100" />
+												<input type="text" name="db_user" id="db-user" autocomplete="off" placeholder="<?=DEFAULT_DATABASE_USER_NAME?>" class="width-100" />
 												<i class="ace-icon fa fa-fw fa-user"></i>
 											</span>
 										</div>
@@ -498,6 +498,9 @@
 			contact_tel:{
 				pattern: /^[0-9\.\+\- ]+$/,
 			},
+			db_name:{
+				pattern: /(((^[a-z]{1,})([a-z0-9]{0,}))|(^[a-z]([a-z0-9\_]{1,})([a-z0-9]{1,})))$/
+			}
 		},
 		messages:{
 			short_name:{
@@ -522,6 +525,9 @@
 			contact_tel:{
 				pattern: "<?php echo __('Phone format invalid');?>",
 			},
+			db_name:{
+				pattern: "<?php echo __('Db name invalid');?>",
+			}
 		},
 		errorElement: 'div',
 		errorClass: 'help-block',

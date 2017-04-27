@@ -559,3 +559,6 @@ msgstr "サブドメインの形式が無効です"
 
 msgid "Last login"
 msgstr "最終ログイン"
+
+msgid "Db name invalid"
+msgstr "DB名に不用な文字が含まれています"
