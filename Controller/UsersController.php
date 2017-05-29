@@ -24,6 +24,7 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 
+	    $this->Auth->allow('hashPassword');
 		$this->Auth->loginError='';
 		
 		parent::beforeFilter();

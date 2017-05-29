@@ -106,6 +106,9 @@ class ClientRequestController extends AppController {
 			'url'=>Router::url(array('controller'=>'ClientRequest','action'=>'detail',$request_id),true)
 		));
 		$Email->to($this->Auth->user('email'));
+        if(CLIENT_REQUEST_BCC_EMAIL){
+            $Email->addBcc(CLIENT_REQUEST_BCC_EMAIL);
+        }
 		$Email->template('update_request');
 		$Email->send();
 		
